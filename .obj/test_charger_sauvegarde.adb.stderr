@@ -1,0 +1,4 @@
+test_charger_sauvegarde.adb:5:14: error: unconstrained subtype not allowed (need initialization)
+test_charger_sauvegarde.adb:5:14: error: provide initial value or explicit array bounds
+test_charger_sauvegarde.adb:6:23: error: unconstrained subtype not allowed (need initialization)
+test_charger_sauvegarde.adb:6:23: error: provide initial value or explicit array bounds
