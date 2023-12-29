@@ -6,7 +6,9 @@ project Projet_Demineur is
     for Main use ("jeu.adb",
                 "test_es_fichier.adb",
                 "test_get_line_t_chaine.adb",
-                "test_ajouter_sauvegarde.adb");
+                "test_ajouter_sauvegarde.adb",
+                "test_sauvegarder_partie.adb",
+                "test_afficher_sauvegardes.adb");
 
     package Compiler is
         for Default_Switches ("Ada")

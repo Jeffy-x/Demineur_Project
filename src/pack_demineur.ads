@@ -104,6 +104,9 @@ package Pack_Demineur is
     procedure Get_Line (lettres : out T_Lettres;
     longueur_chaine : out T_Indice_Chaine);
 
-    function elem_case_to_character (elem : T_Element_Case) return Character;
+    function elem_case_to_string (elem : T_Element_Case) return String;
     function character_to_elem_case (char : Character) return T_Element_Case;
+
+    procedure afficher_sauvegardes
+    (parties_sauvegardee : T_Parties_Sauvegardees);
 end Pack_Demineur;
