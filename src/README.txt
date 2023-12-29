@@ -3,8 +3,6 @@ Ce projet a pour but de modéliser un jeu de démineur.
 ------------------------------------------------------------
 
 ------------------------------------------------------------
-Liste des procédures et foncions à faire :
-- Sauvegarder la partie
 
 
 

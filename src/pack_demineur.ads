@@ -109,4 +109,9 @@ package Pack_Demineur is
 
     procedure afficher_sauvegardes
     (parties_sauvegardee : T_Parties_Sauvegardees);
+
+    procedure charger_sauvegarde
+    (grille : out T_Grille; grille_solution : out T_Grille;
+    nb_lignes : out T_Nb_Ligne;
+    nb_colonnes : out T_Nb_Colonne; titre : T_Chaine);
 end Pack_Demineur;

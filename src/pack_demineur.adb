@@ -240,7 +240,8 @@ package body Pack_Demineur is
         chemin_longueur : Natural;
     begin
         chemin_initial.longueur_chaine := 11;
-        chemin_initial.lettres (1 .. 11) := "sauvegarde/";
+        chemin_initial.lettres (1 .. chemin_initial.longueur_chaine)
+        := "sauvegarde/";
         txt.longueur_chaine := 4;
         txt.lettres (1 .. 4) := ".txt";
 
@@ -254,10 +255,6 @@ package body Pack_Demineur is
         chemin_longueur := Natural (chemin_global.longueur_chaine);
         chemin_string (1 .. chemin_longueur) :=
         String (chemin_global.lettres) (1 .. chemin_longueur);
-        Put (chemin_global);
-        New_Line;
-        Put (titre);
-        New_Line;
         CreerFichier (Fichier, chemin_string (1 .. chemin_longueur));
         AjouterAuFichier (Fichier, Integer (nb_lignes));
         NouvelleLigne (Fichier);
@@ -372,4 +369,56 @@ package body Pack_Demineur is
             Put (parties_sauvegardee.titres (J));
         end loop;
     end afficher_sauvegardes;
+
+    procedure charger_sauvegarde (grille : out T_Grille;
+    grille_solution : out T_Grille;
+    nb_lignes : out T_Nb_Ligne; nb_colonnes :
+    out T_Nb_Colonne; titre : T_Chaine) is
+        chemin_initial : T_Chaine;
+        chemin_global : T_Chaine;
+        txt : T_Chaine;
+        Fichier : File_Type;
+        chemin_string : String (1 .. Natural (T_Indice_Chaine'Last));
+        chemin_longueur : Natural;
+        val_ent : Integer;
+        char : Character;
+    begin
+        chemin_initial.longueur_chaine := 11;
+        chemin_initial.lettres
+    (1 .. chemin_initial.longueur_chaine) := "sauvegarde/";
+        txt.longueur_chaine := 4;
+        txt.lettres (1 .. 4) := ".txt";
+
+        chemin_global.longueur_chaine :=
+        chemin_initial.longueur_chaine + titre.longueur_chaine
+        + txt.longueur_chaine;
+        chemin_global.lettres (1 .. chemin_global.longueur_chaine) :=
+        chemin_initial.lettres (1 .. chemin_initial.longueur_chaine)
+        & titre.lettres (1 .. titre.longueur_chaine) & txt.lettres
+        (1 .. txt.longueur_chaine);
+        chemin_longueur := Natural (chemin_global.longueur_chaine);
+        chemin_string (1 .. chemin_longueur) :=
+        String (chemin_global.lettres) (1 .. chemin_longueur);
+        OuvrirFichierLect
+    (Fichier, chemin_string (1 .. chemin_longueur));
+        Lecture (Fichier, val_ent);
+        nb_lignes := T_Nb_Ligne (val_ent);
+        Lecture (Fichier, val_ent);
+        nb_colonnes := T_Nb_Colonne (val_ent);
+        for I in 1 .. nb_lignes loop
+            for J in 1 .. nb_colonnes loop
+                Lecture (Fichier, char);
+                grille (I + 1, J + 1) :=
+                character_to_elem_case (char);
+            end loop;
+        end loop;
+        for I in 1 .. nb_lignes loop
+            for J in 1 .. nb_colonnes loop
+                Lecture (Fichier, char);
+                grille_solution (I + 1, J + 1) :=
+                character_to_elem_case (char);
+            end loop;
+        end loop;
+        FermerFichier (Fichier);
+    end charger_sauvegarde;
 end Pack_Demineur;
