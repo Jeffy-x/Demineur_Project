@@ -5,7 +5,8 @@ project Projet_Demineur is
     for Exec_Dir use "exec";
     for Main use ("jeu.adb",
                 "test_es_fichier.adb",
-                "test_chaine.adb");
+                "test_get_line_t_chaine.adb",
+                "test_ajouter_sauvegarde.adb");
 
     package Compiler is
         for Default_Switches ("Ada")

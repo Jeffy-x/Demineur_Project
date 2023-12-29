@@ -42,13 +42,13 @@ package body Pack_Demineur is
                     Put (" ");
                     Put (" ");
                 elsif grille (I + 1, J + 1) = cache then
-                    Put ("#");
-                    Put (" ");
+                    Put ("");
+                    Put ("□ ");
                 elsif grille (I + 1, J + 1) = bombe then
-                    Put ("*");
+                    Put ("●");
                     Put (" ");
                 elsif grille (I + 1, J + 1) = drapeau then
-                    Put ("$ ");
+                    Put ("► ");
                     Put ("");
                 elsif grille (I + 1, J + 1) = '1' then
                     Put ("1");
@@ -237,19 +237,26 @@ package body Pack_Demineur is
         txt : T_Chaine;
         Fichier : File_Type;
         chemin_string : String (1 .. Natural (T_Indice_Chaine'Last));
+        chemin_longueur : Natural;
     begin
-        chemin_initial.lettres := "/sauvegarde/";
         chemin_initial.longueur_chaine := 12;
-        txt.lettres := ".txt";
+        chemin_initial.lettres (1 .. 12) := "/sauvegarde/";
         txt.longueur_chaine := 4;
+        txt.lettres (1 .. 4) := ".txt";
 
-        chemin_global.lettres := chemin_initial.lettres
-        & titre.lettres & txt.lettres;
         chemin_global.longueur_chaine :=
         chemin_initial.longueur_chaine + titre.longueur_chaine
         + txt.longueur_chaine;
-
-        CreerFichier (Fichier, )
+        chemin_global.lettres := chemin_initial.lettres
+        & titre.lettres & txt.lettres;
+        chemin_longueur := Natural (chemin_global.longueur_chaine);
+        chemin_string (1 .. chemin_longueur) :=
+        String (chemin_global.lettres) (1 .. chemin_longueur);
+        CreerFichier (Fichier, chemin_string (1 .. chemin_longueur));
+        AjouterAuFichier (Integer (nb_lignes));
+        NouvelleLigne;
+        AjouterAuFichier (Integer (nb_colonnes));
+        NouvelleLigne;
     end sauvegarder_partie;
 
     procedure Put (chaine : T_Chaine) is
@@ -270,4 +277,36 @@ package body Pack_Demineur is
         lettres (1 .. longueur_chaine) :=
         T_Lettres (chaine_string) (1 .. longueur_chaine);
     end Get_Line;
+
+    function elem_case_to_character (elem : T_Element_Case) return Character is
+    begin
+        case elem is
+            when cache =>
+                return 'C';
+            when vide =>
+                return 'V';
+            when bombe =>
+                return 'B';
+            when drapeau =>
+                return 'D';
+            when others =>
+                return Character (elem);
+        end case;
+    end elem_case_to_character;
+
+    function character_to_elem_case (char : Character) return T_Element_Case is
+    begin
+        case char is
+            when 'C' =>
+                return cache;
+            when 'V' =>
+                return vide;
+            when 'B' =>
+                return bombe;
+            when 'D' =>
+                return drapeau;
+            when others =>
+                return T_Element_Case (char);
+        end case;
+    end character_to_elem_case;
 end Pack_Demineur;
