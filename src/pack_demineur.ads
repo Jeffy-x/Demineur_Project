@@ -115,8 +115,8 @@ package Pack_Demineur is
     nb_lignes : out T_Nb_Ligne;
     nb_colonnes : out T_Nb_Colonne; titre : T_Chaine);
 
-    --  procedure charger_lg_grille (nb_lignes : T_Nb_Ligne;
-    --  nb_colonnes : T_Nb_Colonne; titre : T_Chaine);
+    procedure charger_lg_grille (nb_lignes : out T_Nb_Ligne;
+    nb_colonnes : out T_Nb_Colonne; titre : T_Chaine);
 
     function titre_to_chemin (titre : T_Chaine) return T_Chaine;
 end Pack_Demineur;

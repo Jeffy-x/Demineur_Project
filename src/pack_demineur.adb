@@ -394,18 +394,25 @@ package body Pack_Demineur is
         FermerFichier (Fichier);
     end charger_sauvegarde;
 
-    --  procedure charger_lg_grille (nb_lignes : T_Nb_Ligne;
-    --  nb_colonnes : T_Nb_Colonne; titre : T_Chaine) is
-    --      chemin_initial : T_Chaine;
-    --      chemin_global : T_Chaine;
-    --      txt : T_Chaine;
-    --      Fichier : File_Type;
-    --      chemin_string : String (1 .. Natural (T_Indice_Chaine'Last));
-    --      chemin_longueur : Natural;
-    --      val_ent : Integer;
-    --  begin
-    --      Put ("jklm");
-    --  end charger_lg_grille;
+    procedure charger_lg_grille (nb_lignes : out T_Nb_Ligne;
+    nb_colonnes : out T_Nb_Colonne; titre : T_Chaine) is
+        chemin_global : T_Chaine;
+        Fichier : File_Type;
+        chemin_string : String (1 .. Natural (T_Indice_Chaine'Last));
+        chemin_longueur : Natural;
+        val_ent : Integer;
+    begin
+        chemin_global := titre_to_chemin (titre);
+        chemin_longueur := Natural (chemin_global.longueur_chaine);
+        chemin_string (1 .. chemin_longueur) :=
+        String (chemin_global.lettres) (1 .. chemin_longueur);
+        OuvrirFichierLect
+    (Fichier, chemin_string (1 .. chemin_longueur));
+        Lecture (Fichier, val_ent);
+        nb_lignes := T_Nb_Ligne (val_ent);
+        Lecture (Fichier, val_ent);
+        nb_colonnes := T_Nb_Colonne (val_ent);
+    end charger_lg_grille;
 
     function titre_to_chemin (titre : T_Chaine) return T_Chaine is
         chemin_initial : T_Chaine;
@@ -427,4 +434,5 @@ package body Pack_Demineur is
         (1 .. txt.longueur_chaine);
         return chemin_global;
     end titre_to_chemin;
+
 end Pack_Demineur;

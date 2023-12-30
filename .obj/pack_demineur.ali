@@ -24,7 +24,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
 
-U pack_demineur%b	pack_demineur.adb	795f19d8 NE OO PK
+U pack_demineur%b	pack_demineur.adb	95afd4bb NE OO PK
 W ada%s			ada.ads			ada.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 Z ada.tags%s		a-tags.adb		a-tags.ali
@@ -35,7 +35,7 @@ W pack_demineur%s	pack_demineur.adb	pack_demineur.ali
 Z system.img_int%s	s-imgint.ads		s-imgint.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-U pack_demineur%s	pack_demineur.ads	5d2b9a15 EE NE OO PK
+U pack_demineur%s	pack_demineur.ads	2416f7cb EE NE OO PK
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 
 D ada.ads		20220819080952 76789da1 ada%s
@@ -52,8 +52,8 @@ D aleatoire.ads		20231215093752 5ebf4653 aleatoire%s
 D es_fichier.ads	20231227214742 a5385011 es_fichier%s
 D interfac.ads		20220819080952 edec285f interfaces%s
 D i-cstrea.ads		20220819080952 e53d8b8e interfaces.c_streams%s
-D pack_demineur.ads	20231230110120 5d2b9a15 pack_demineur%s
-D pack_demineur.adb	20231230111439 5c75a610 pack_demineur%b
+D pack_demineur.ads	20231230112336 2416f7cb pack_demineur%s
+D pack_demineur.adb	20231230112346 b0856b73 pack_demineur%b
 D system.ads		20220819080952 a2da961d system%s
 D s-crtl.ads		20220819080952 8a0692f8 system.crtl%s
 D s-exctab.ads		20220819080952 91bef6ef system.exception_table%s
@@ -88,6 +88,7 @@ G c Z s b [elem_case_to_string pack_demineur 107 14 none]
 G c Z s b [character_to_elem_case pack_demineur 108 14 none]
 G c Z s b [afficher_sauvegardes pack_demineur 110 15 none]
 G c Z s b [charger_sauvegarde pack_demineur 113 15 none]
+G c Z s b [charger_lg_grille pack_demineur 118 15 none]
 G c Z s b [titre_to_chemin pack_demineur 121 14 none]
 G c Z s s [t_grilleIP pack_demineur 7 10 none]
 G c Z s s [Tt_lettresBIP pack_demineur 15 5 none]
@@ -104,11 +105,13 @@ G r c none [charger_sauvegarde pack_demineur 113 15 none] [ouvrirfichierlect es_
 G r c none [charger_sauvegarde pack_demineur 113 15 none] [lecture es_fichier 20 15 none]
 G r c none [charger_sauvegarde pack_demineur 113 15 none] [lecture es_fichier 22 15 none]
 G r c none [charger_sauvegarde pack_demineur 113 15 none] [fermerfichier es_fichier 12 15 none]
+G r c none [charger_lg_grille pack_demineur 118 15 none] [ouvrirfichierlect es_fichier 10 15 none]
+G r c none [charger_lg_grille pack_demineur 118 15 none] [lecture es_fichier 20 15 none]
 X 1 ada.ads
 16K9*Ada 20e8 16|1r6 2r5
 X 9 a-textio.ads
 58K13*Text_IO 727e16 16|1w10 2r9
-66P9*File_Type 16|236r19 364r19
+66P9*File_Type 16|236r19 364r19 400r19
 263U14*New_Line 16|9s9 18s9 23s9 29s9 80s13 354s13
 391U14*Put 16|270s13
 464U14*Put 16|10s9 13s17 15s17 19s9 21s13 24s9 26s13 28s9 33s17 34s17 36s17
@@ -124,21 +127,22 @@ X 11 aleatoire.ads
 X 12 es_fichier.ads
 3K9*ES_Fichier 28e15 16|1w45 2r44
 6U15*CreerFichier 16|244s9
-10U15*OuvrirFichierLect 16|374s9
+10U15*OuvrirFichierLect 16|374s9 409s9
 12U15*FermerFichier 16|394s9
 14U15*AjouterAuFichier 16|251s17 259s17
 16U15*AjouterAuFichier 16|245s9 247s9
 18U15*NouvelleLigne 16|246s9 248s9 254s13 256s9 262s13
-20U15*Lecture 16|376s9 378s9
+20U15*Lecture 16|376s9 378s9 411s9 413s9
 22U15*Lecture 16|382s17 389s17
 X 15 pack_demineur.ads
-1K9*Pack_Demineur 122l5 122e18 16|1w19 2r18 4b14 430l5 430t18
+1K9*Pack_Demineur 122l5 122e18 16|1w19 2r18 4b14 438l5 438t18
 2I10*T_Nb_Ligne<short_short_integer> 7r29 34r63 42r17 51r65 60r13 70r13 79r17
-. 86r45 95r45 115r21 16|6r63 34r22 36r22 90r17 94r17 105r22 116r65 120r23
-. 133r13 145r17 160r13 187r31 199r45 232r45 361r21 377r22
+. 86r45 95r45 115r21 118r50 16|6r63 34r22 36r22 90r17 94r17 105r22 116r65
+. 120r23 133r13 145r17 160r13 187r31 199r45 232r45 361r21 377r22 397r50 412r22
 3I10*T_Nb_Colonne<short_short_integer> 8r5 35r19 43r19 52r15 60r35 70r35
-. 79r43 87r19 96r19 116r23 16|7r19 15r22 21r18 91r19 95r19 106r24 117r15
-. 121r27 133r35 145r43 160r35 188r35 200r19 233r19 362r9 379r24
+. 79r43 87r19 96r19 116r23 119r23 16|7r19 15r22 21r18 91r19 95r19 106r24
+. 117r15 121r27 133r35 145r43 160r35 188r35 200r19 233r19 362r9 379r24 398r23
+. 414r24
 4I10*T_Nb_Bombe<short_integer> 43r45 52r36 16|91r45 96r29 117r36 118r21 162r20
 5E10*T_Element_Case 6e44 8r31 107r42 108r63 16|286r42 316r63
 5n29*cache{5E10} 16|44r47 135r46 138r48 147r41 164r46 205r45 289r18 320r24
@@ -169,14 +173,15 @@ X 15 pack_demineur.ads
 11n45*perdu{11E10} 16|168r32
 12I10*T_Nb_Case_A_Ouvrir<short_integer> 87r40 16|200r40 201r28
 14I10*T_Indice_Chaine<short_short_integer> 15r35 18r27 105r27 16|237r47 275r27
-. 276r47 281r28 365r47
+. 276r47 281r28 365r47 401r47
 15A10*T_Lettres(character)<14I10> 17r19 104r39 16|274r39 283r9
-16R10*T_Chaine 19e15 23r52 96r41 99r43 102r29 116r45 121r39 121r56 16|216r43
-. 233r41 235r25 267r29 362r31 363r25 410r39 410r56 411r26 412r25 413r15
-17a9*lettres{15A10} 16|243r31 270r25 373r31 416m24 419m13 424m23 425r24 426r17
-. 426r60
-18i9*longueur_chaine{14I10} 16|241r51 269r30 371r51 415m24 417r26 418m13
-. 421m23 422r24 422r48 423r15 424r51 425r53 426r37 427r19
+16R10*T_Chaine 19e15 23r52 96r41 99r43 102r29 116r45 119r45 121r39 121r56
+. 16|216r43 233r41 235r25 267r29 362r31 363r25 398r45 399r25 417r39 417r56
+. 418r26 419r25 420r15
+17a9*lettres{15A10} 16|243r31 270r25 373r31 408r31 423m24 426m13 431m23 432r24
+. 433r17 433r60
+18i9*longueur_chaine{14I10} 16|241r51 269r30 371r51 406r51 422m24 424r26
+. 425m13 428m23 429r24 429r48 430r15 431r51 432r53 433r37 434r19
 21I10*T_Indice_Liste_Sauvegarde<short_short_integer> 23r17 27r9 16|220r9
 . 351r42
 22A10*T_Titre_Sauvegarde(16R10)<21I10> 25r18
@@ -250,8 +255,13 @@ X 15 pack_demineur.ads
 115i5 nb_lignes{2I10} 16|361b5 377m9 380r23 387r23
 116i5 nb_colonnes{3I10} 16|361b33 379m9 381r27 388r27
 116r37 titre{16R10} 16|362b23 370r43
-121V14*titre_to_chemin{16R10} 121>31 16|240s26 370s26 410b14 429l9 429t24
-121r31 titre{16R10} 16|410b31 422r42 426r11 426r31
+118U15*charger_lg_grille 118<34 119<5 119>37 16|397b15 415l9 415t26
+118i34 nb_lignes{2I10} 16|397b34 412m9
+119i5 nb_colonnes{3I10} 16|398b5 414m9
+119r37 titre{16R10} 16|398b37 405r43
+121V14*titre_to_chemin{16R10} 121>31 16|240s26 370s26 405s26 417b14 436l9
+. 436t24
+121r31 titre{16R10} 16|417b31 429r42 433r11 433r31
 X 16 pack_demineur.adb
 11i13 J<short_short_integer> 12r16 15r42
 20i13 J<short_short_integer> 21r38 21r48
@@ -301,7 +311,12 @@ X 16 pack_demineur.adb
 381i17 J<short_short_integer> 383r32
 387i13 I<short_short_integer> 390r34
 388i17 J<short_short_integer> 390r41
-411r9 chemin_initial{15|16R10} 415m9 416m9 417r11 422r9 425r9 425r38
-412r9 chemin_global{15|16R10} 421m9 424m9 424r37 428r16
-413r9 txt{15|16R10} 418m9 419m9 423r11 426r56 427r15
+399r9 chemin_global{15|16R10} 405m9 406r37 408r17
+400p9 Fichier{9|66P9} 410m6 410r6 411r18 413r18
+401a9 chemin_string{string} 407m9 410r15
+402i9 chemin_longueur{natural} 406m9 407r29 408r46 410r35
+403i9 val_ent{integer} 411m27 412r34 413m27 414r38
+418r9 chemin_initial{15|16R10} 422m9 423m9 424r11 429r9 432r9 432r38
+419r9 chemin_global{15|16R10} 428m9 431m9 431r37 435r16
+420r9 txt{15|16R10} 425m9 426m9 430r11 433r56 434r15
 
