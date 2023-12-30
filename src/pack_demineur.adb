@@ -366,6 +366,9 @@ package body Pack_Demineur is
         val_ent : Integer;
         char : Character;
     begin
+        initialisation_grille (grille, nb_lignes, nb_colonnes);
+        grille_solution := (others => (others => vide));
+
         chemin_global := titre_to_chemin (titre);
         chemin_longueur := Natural (chemin_global.longueur_chaine);
         chemin_string (1 .. chemin_longueur) :=
@@ -377,7 +380,7 @@ package body Pack_Demineur is
             Put_Line ("Erreur de lecture nb_lignes pour contraindre");
         end if;
         Lecture (Fichier, val_ent);
-        if nb_colonnes = T_Nb_Colonne (val_ent) then
+        if nb_colonnes /= T_Nb_Colonne (val_ent) then
             Put_Line ("Erreur de lecture nb_colonnes pour contraindre");
         end if;
         for I in 1 .. nb_lignes loop
@@ -415,6 +418,7 @@ package body Pack_Demineur is
         nb_lignes := T_Nb_Ligne (val_ent);
         Lecture (Fichier, val_ent);
         nb_colonnes := T_Nb_Colonne (val_ent);
+        FermerFichier (Fichier);
     end charger_lg_grille;
 
     function titre_to_chemin (titre : T_Chaine) return T_Chaine is

@@ -2,8 +2,6 @@ with Ada.Text_IO, Pack_Demineur;
 use Ada.Text_IO, Pack_Demineur;
 
 procedure test_charger_sauvegarde is
-    grille : T_Grille;
-    grille_solution : T_Grille;
     nb_lignes : T_Nb_Ligne;
     nb_colonnes : T_Nb_Colonne;
     titre : T_Chaine;
