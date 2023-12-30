@@ -6,7 +6,7 @@ use Ada.Text_IO, Pack_Demineur;
 --  Ce test est CONCLUANT
 procedure test_sauvegarder_partie is
     nb_lignes : constant T_Nb_Ligne := 15;
-    nb_colonnes : constant T_Nb_Colonne := 15;
+    nb_colonnes : constant T_Nb_Colonne := 20;
 
     grille : T_Grille (1 .. (nb_lignes + 2), 1 .. (nb_colonnes + 2));
     grille_solution : T_Grille (1 .. (nb_lignes + 2),

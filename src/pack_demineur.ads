@@ -112,8 +112,8 @@ package Pack_Demineur is
 
     procedure charger_sauvegarde
     (grille : out T_Grille; grille_solution : out T_Grille;
-    nb_lignes : out T_Nb_Ligne;
-    nb_colonnes : out T_Nb_Colonne; titre : T_Chaine);
+    nb_lignes : T_Nb_Ligne;
+    nb_colonnes : T_Nb_Colonne; titre : T_Chaine);
 
     procedure charger_lg_grille (nb_lignes : out T_Nb_Ligne;
     nb_colonnes : out T_Nb_Colonne; titre : T_Chaine);

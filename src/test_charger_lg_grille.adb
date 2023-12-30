@@ -5,6 +5,12 @@ procedure test_charger_lg_grille is
     nb_lignes : T_Nb_Ligne;
     nb_colonnes : T_Nb_Colonne;
     titre : T_Chaine;
+    package T_Nb_Ligne_IO is new
+    Ada.Text_IO.Integer_IO (T_Nb_Ligne);
+    use T_Nb_Ligne_IO;
+    package T_Nb_Colonne_IO is new
+    Ada.Text_IO.Integer_IO (T_Nb_Colonne);
+    use T_Nb_Colonne_IO;
 begin
     Put_Line ("Donnez le titre de la partie dont vous"
     & " voulez charger la longueur : ");

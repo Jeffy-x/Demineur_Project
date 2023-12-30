@@ -358,8 +358,7 @@ package body Pack_Demineur is
 
     procedure charger_sauvegarde (grille : out T_Grille;
     grille_solution : out T_Grille;
-    nb_lignes : out T_Nb_Ligne; nb_colonnes :
-    out T_Nb_Colonne; titre : T_Chaine) is
+    nb_lignes : T_Nb_Ligne; nb_colonnes : T_Nb_Colonne; titre : T_Chaine) is
         chemin_global : T_Chaine;
         Fichier : File_Type;
         chemin_string : String (1 .. Natural (T_Indice_Chaine'Last));
@@ -374,9 +373,13 @@ package body Pack_Demineur is
         OuvrirFichierLect
     (Fichier, chemin_string (1 .. chemin_longueur));
         Lecture (Fichier, val_ent);
-        nb_lignes := T_Nb_Ligne (val_ent);
+        if nb_lignes /= T_Nb_Ligne (val_ent) then
+            Put_Line ("Erreur de lecture nb_lignes pour contraindre");
+        end if;
         Lecture (Fichier, val_ent);
-        nb_colonnes := T_Nb_Colonne (val_ent);
+        if nb_colonnes = T_Nb_Colonne (val_ent) then
+            Put_Line ("Erreur de lecture nb_colonnes pour contraindre");
+        end if;
         for I in 1 .. nb_lignes loop
             for J in 1 .. nb_colonnes loop
                 Lecture (Fichier, char);
