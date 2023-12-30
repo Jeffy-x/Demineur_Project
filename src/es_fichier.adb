@@ -8,6 +8,11 @@ package body ES_Fichier is
         Create (fic, Append_File, chemin);
     end CreerFichier;
 
+    procedure SupprimerFicher (fic : in out File_Type) is
+    begin
+        Delete (fic);
+    end SupprimerFicher;
+
     procedure OuvrirFichier (fic : in out File_Type; chemin : String) is
     begin
         Open (fic, Append_File, chemin);

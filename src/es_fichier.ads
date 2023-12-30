@@ -4,6 +4,8 @@ package ES_Fichier is
 
     --  Création ou ecrasement d'un fichier
     procedure CreerFichier (fic : in out File_Type; chemin : String);
+    --  Suppression d'un fichier
+    procedure SupprimerFicher (fic : in out File_Type);
     --  Ouverture d'un fichier en mode ''Ajout'
     procedure OuvrirFichier (fic : in out File_Type; chemin : String);
     --  Ouverture d'u fichier en mode lecture
