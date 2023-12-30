@@ -1,5 +1,5 @@
 [GENERATED OBJECT FILE]
-b__test_get_line_t_chaine.o
+b__test_titre_to_chemin.o
 [PROJECT FILES]
 /home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/projet_demineur.gpr
 20231230110735 da83c93986cd63cac87ad41a47fb8865
@@ -7,11 +7,11 @@ b__test_get_line_t_chaine.o
 /home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/aleatoire.o
 /home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/es_fichier.o
 /home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/pack_demineur.o
-/home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/test_get_line_t_chaine.o
+/home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/test_titre_to_chemin.o
 [GENERATED SOURCE FILES]
-b__test_get_line_t_chaine.ads
-b__test_get_line_t_chaine.adb
-b__test_get_line_t_chaine.ali
+b__test_titre_to_chemin.ads
+b__test_titre_to_chemin.adb
+b__test_titre_to_chemin.ali
 [RESULTING OPTIONS]
 -L/home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/
 -L/home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/

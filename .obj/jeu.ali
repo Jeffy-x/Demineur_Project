@@ -26,7 +26,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U jeu%b			jeu.adb			2c45be71 NE OO SU IL
+U jeu%b			jeu.adb			b05b4042 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
@@ -73,7 +73,7 @@ D a-unccon.ads		20220819080952 0e9b276f ada.unchecked_conversion%s
 D interfac.ads		20220819080952 edec285f interfaces%s
 D i-cstrea.ads		20220819080952 e53d8b8e interfaces.c_streams%s
 D jeu.adb		20231224201252 33dd73dd jeu%b
-D pack_demineur.ads	20231229221707 c1356426 pack_demineur%s
+D pack_demineur.ads	20231230110120 5d2b9a15 pack_demineur%s
 D system.ads		20220819080952 a2da961d system%s
 D s-casuti.ads		20220819080952 cf13d755 system.case_util%s
 D s-crtl.ads		20220819080952 8a0692f8 system.crtl%s
@@ -153,7 +153,7 @@ X 21 jeu.adb
 48i9 ligne{46I17} 74m26 76r44 79m26 82r21
 49i9 colonne{47I17} 75m26 76r51 80m26 82r28
 X 22 pack_demineur.ads
-1K9*Pack_Demineur 21|1w19 2r18 22|117e18
+1K9*Pack_Demineur 21|1w19 2r18 22|122e18
 2I10*T_Nb_Ligne<short_short_integer> 21|5r17 7r58 46r28
 3I10*T_Nb_Colonne<short_short_integer> 21|6r19 9r60 47r30
 4I10*T_Nb_Bombe<short_integer> 21|15r17 17r29

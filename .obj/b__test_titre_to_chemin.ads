@@ -23,7 +23,7 @@ package ada_main is
    GNAT_Version_Address : constant System.Address := GNAT_Version'Address;
    pragma Export (C, GNAT_Version_Address, "__gnat_version_address");
 
-   Ada_Main_Program_Name : constant String := "_ada_test_sauvegarder_partie" & ASCII.NUL;
+   Ada_Main_Program_Name : constant String := "_ada_test_titre_to_chemin" & ASCII.NUL;
    pragma Export (C, Ada_Main_Program_Name, "__gnat_ada_main_program_name");
 
    procedure adainit;
@@ -40,8 +40,8 @@ package ada_main is
    pragma Export (C, main, "main");
 
    type Version_32 is mod 2 ** 32;
-   u00001 : constant Version_32 := 16#a96927f1#;
-   pragma Export (C, u00001, "test_sauvegarder_partieB");
+   u00001 : constant Version_32 := 16#28eaf3a8#;
+   pragma Export (C, u00001, "test_titre_to_cheminB");
    u00002 : constant Version_32 := 16#7320ff5f#;
    pragma Export (C, u00002, "system__standard_libraryB");
    u00003 : constant Version_32 := 16#b0d43184#;
@@ -581,7 +581,7 @@ package ada_main is
    --  es_fichier%b
    --  pack_demineur%s
    --  pack_demineur%b
-   --  test_sauvegarder_partie%b
+   --  test_titre_to_chemin%b
    --  END ELABORATION ORDER
 
 end ada_main;

@@ -19,7 +19,7 @@ RV NO_IO
 RV NO_DEFAULT_INITIALIZATION
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U test_sauvegarder_partie%b  test_sauvegarder_partie.adb  3577d9c2 NE OO SU IL
+U test_sauvegarder_partie%b  test_sauvegarder_partie.adb  a96927f1 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
@@ -37,7 +37,7 @@ D a-textio.ads		20220819080952 deada98a ada.text_io%s
 D a-unccon.ads		20220819080952 0e9b276f ada.unchecked_conversion%s
 D interfac.ads		20220819080952 edec285f interfaces%s
 D i-cstrea.ads		20220819080952 e53d8b8e interfaces.c_streams%s
-D pack_demineur.ads	20231229221707 c1356426 pack_demineur%s
+D pack_demineur.ads	20231230110120 5d2b9a15 pack_demineur%s
 D system.ads		20220819080952 a2da961d system%s
 D s-crtl.ads		20220819080952 8a0692f8 system.crtl%s
 D s-exctab.ads		20220819080952 91bef6ef system.exception_table%s
@@ -73,7 +73,7 @@ X 9 a-textio.ads
 263U14*New_Line 29|38s5 43s5
 507U14*Put_Line 29|29s5
 X 13 pack_demineur.ads
-1K9*Pack_Demineur 117e18 29|1w19 2r18
+1K9*Pack_Demineur 122e18 29|1w19 2r18
 2I10*T_Nb_Ligne<short_short_integer> 29|8r26
 3I10*T_Nb_Colonne<short_short_integer> 29|9r28
 7A10*T_Grille(5E10)<2I10><3I10> 29|11r14 12r23

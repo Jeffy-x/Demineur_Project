@@ -19,7 +19,7 @@ RV NO_IO
 RV NO_DEFAULT_INITIALIZATION
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U test_ajouter_sauvegarde%b  test_ajouter_sauvegarde.adb  09960e78 NE OO SU IL
+U test_titre_to_chemin%b  test_titre_to_chemin.adb  28eaf3a8 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
@@ -53,40 +53,31 @@ D s-stoele.adb		20220819080952 8f5a9db6 system.storage_elements%b
 D s-traent.ads		20220819080952 c81cbf8c system.traceback_entries%s
 D s-unstyp.ads		20220819080952 fa2a7f59 system.unsigned_types%s
 D s-wchcon.ads		20220819080952 d9032363 system.wch_con%s
-D test_ajouter_sauvegarde.adb  20231228175448 8a103de7 test_ajouter_sauvegarde%b
+D test_titre_to_chemin.adb  20231230110647 ab6cc037 test_titre_to_chemin%b
 D unchconv.ads		20220819080952 ca2f9e18 unchecked_conversion%s
 G a e
-G c Z b b [test_ajouter_sauvegarde standard 7 11 none]
-G r s t_parties_sauvegardees [test_ajouter_sauvegarde standard 7 11 none] [t_parties_sauvegardeesIP pack_demineur 24 10 none]
-G r s t_chaine [test_ajouter_sauvegarde standard 7 11 none] [t_chaineIP pack_demineur 16 10 none]
-G r c none [test_ajouter_sauvegarde standard 7 11 none] [get_line pack_demineur 104 15 none]
-G r c none [test_ajouter_sauvegarde standard 7 11 none] [ajouter_sauvegarde pack_demineur 99 15 none]
-G r c none [test_ajouter_sauvegarde standard 7 11 none] [put pack_demineur 102 15 none]
+G c Z b b [test_titre_to_chemin standard 4 11 none]
+G r s t_chaine [test_titre_to_chemin standard 4 11 none] [t_chaineIP pack_demineur 16 10 none]
+G r c none [test_titre_to_chemin standard 4 11 none] [get_line pack_demineur 104 15 none]
+G r c none [test_titre_to_chemin standard 4 11 none] [titre_to_chemin pack_demineur 121 14 none]
+G r c none [test_titre_to_chemin standard 4 11 none] [put pack_demineur 102 15 none]
 X 1 ada.ads
 16K9*Ada 20e8 29|1r6 2r5
 X 9 a-textio.ads
 58K13*Text_IO 727e16 29|1w10 2r9
-263U14*New_Line 29|12s9 17s5
-464U14*Put 29|21s9
-507U14*Put_Line 29|13s9 18s5
+263U14*New_Line 29|9s5
+507U14*Put_Line 29|7s5 10s5
 X 13 pack_demineur.ads
 1K9*Pack_Demineur 122e18 29|1w19 2r18
 14I10*T_Indice_Chaine<short_short_integer>
 15A10*T_Lettres(character)<14I10>
-16R10*T_Chaine 19e15 29|9r13
-17a9*lettres{15A10} 29|14m25
-18i9*longueur_chaine{14I10} 29|14m40
-21I10*T_Indice_Liste_Sauvegarde<short_short_integer> 29|19r19
-22A10*T_Titre_Sauvegarde(16R10)<21I10>
-24R10*T_Parties_Sauvegardees 28e15 29|8r26
-25a9*titres{22A10} 29|20r33
-99U15*ajouter_sauvegarde 29|15s9
-102U15*Put 29|20s9
-104U15*Get_Line 29|14s9
-X 29 test_ajouter_sauvegarde.adb
-7U11*test_ajouter_sauvegarde 7b11 24l5 24t28
-8r5 titres_sauvegardes{13|24R10} 15m36 15r36 20r14
-9r5 titre{13|16R10} 14m19 14r19 14m34 14r34 15r29
-11i9 k{integer}
-19i9 J<short_short_integer> 20r41
+16R10*T_Chaine 19e15 29|5r13
+17a9*lettres{15A10} 29|8m21
+18i9*longueur_chaine{14I10} 29|8m36
+102U15*Put 29|11s5
+104U15*Get_Line 29|8s5
+121V14*titre_to_chemin{16R10} 29|11s10
+X 29 test_titre_to_chemin.adb
+4U11*test_titre_to_chemin 4b11 12l5 12t25
+5r5 titre{13|16R10} 8m15 8r15 8m30 8r30 11r27
 

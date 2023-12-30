@@ -9,7 +9,7 @@ project Projet_Demineur is
                 "test_ajouter_sauvegarde.adb",
                 "test_sauvegarder_partie.adb",
                 "test_afficher_sauvegardes.adb",
-                "test_charger_sauvegarde.adb");
+                "test_titre_to_chemin.adb");
 
     package Compiler is
         for Default_Switches ("Ada")
