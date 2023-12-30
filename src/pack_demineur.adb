@@ -421,4 +421,11 @@ package body Pack_Demineur is
         end loop;
         FermerFichier (Fichier);
     end charger_sauvegarde;
+
+    procedure charger_lg_grille (nb_lignes : T_Nb_Ligne;
+    nb_colonnes : T_Nb_Colonne; titre : T_Chaine) is
+        
+    begin
+        
+    end charger_lg_grille;
 end Pack_Demineur;
