@@ -1,5 +1,5 @@
-with Ada.Float_Text_IO, Ada.Integer_Text_IO;
-use Ada.Float_Text_IO, Ada.Integer_Text_IO;
+with Ada.Float_Text_IO, Ada.Integer_Text_IO, Ada.Directories;
+use Ada.Float_Text_IO, Ada.Integer_Text_IO, Ada.Directories;
 
 package body ES_Fichier is
 
@@ -82,4 +82,9 @@ package body ES_Fichier is
     begin
         Set_Directory (nom);
     end DesignerDossierPrincipal;
+
+    function Exisence (chemin : String) return Boolean is
+    begin
+        Exists (chemin);
+    end Exisence;
 end ES_Fichier;

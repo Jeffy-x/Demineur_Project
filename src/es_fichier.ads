@@ -30,4 +30,6 @@ package ES_Fichier is
     procedure CreerDossier (nom : String);
 
     procedure DesignerDossierPrincipal (nom : String);
+
+    function Exisence (chemin : String) return Boolean;
 end ES_Fichier;
