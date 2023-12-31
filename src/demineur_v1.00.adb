@@ -21,6 +21,7 @@ procedure demineur_v1.00 is
     Ada.Text_IO.Integer_IO (T_Nb_Bombe);
     use T_Nb_Bombe_IO;
     etat_partie : T_Etat_Partie := en_cours;
+    parties_sauvegardee : T_Parties_Sauvegardees;
 begin
     New_Line (100);
     Put_Line (" ____                         "
@@ -44,5 +45,16 @@ begin
     Put_Line ("s => charger une sauvegarde");
     Put_Line ("q => quitter");
     Get (choix_chargement_grille);
-    
+    case choix_chargement_grille is
+        when n =>
+            New_Line (2);
+            Put_Line ("Veillez donner un nombre de lignes, de colonnes et de bombes");
+            Get (nb_lignes);
+            Get (nb_colonnes);
+            Get (nb_bombes);
+        when s =>
+
+        when others =>
+
+    end case;
 end demineur_v1.00;

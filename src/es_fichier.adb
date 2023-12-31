@@ -73,4 +73,13 @@ package body ES_Fichier is
         return End_Of_File (fic);
     end FinFichier;
 
+    procedure CreerDossier (nom : String) is
+    begin
+        Create_Directory (nom);
+    end CreerDossier;
+
+    procedure DesignerDossierPrincipal (nom : String) is
+    begin
+        Set_Directory (nom);
+    end DesignerDossierPrincipal;
 end ES_Fichier;

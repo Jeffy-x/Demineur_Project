@@ -27,4 +27,7 @@ package ES_Fichier is
     --  Fin du fichier ??
     function FinFichier (fic : File_Type) return Boolean;
 
+    procedure CreerDossier (nom : String);
+
+    procedure DesignerDossierPrincipal (nom : String);
 end ES_Fichier;

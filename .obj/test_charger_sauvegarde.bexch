@@ -1,0 +1,21 @@
+[GENERATED OBJECT FILE]
+b__test_charger_sauvegarde.o
+[PROJECT FILES]
+/home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/projet_demineur.gpr
+20231230211921 b20c4ed6b4b0da57628326c7a89d0232
+[BOUND OBJECT FILES]
+/home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/aleatoire.o
+/home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/es_fichier.o
+/home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/pack_demineur.o
+/home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/test_charger_sauvegarde.o
+[GENERATED SOURCE FILES]
+b__test_charger_sauvegarde.ads
+b__test_charger_sauvegarde.adb
+b__test_charger_sauvegarde.ali
+[RESULTING OPTIONS]
+-L/home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/
+-L/home/jeffy/Documents/Workspace-ASN/Djoroukhian_Farge_Demineur/.obj/
+-L/usr/lib/gcc/x86_64-linux-gnu/12/adalib/
+-shared
+-lgnat-12
+-ldl
