@@ -120,4 +120,6 @@ package Pack_Demineur is
     nb_colonnes : out T_Nb_Colonne; titre : T_Chaine);
 
     function titre_to_chemin (titre : T_Chaine) return T_Chaine;
+
+    procedure initialisation_environnement;
 end Pack_Demineur;
