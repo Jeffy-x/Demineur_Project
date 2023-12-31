@@ -4,19 +4,20 @@ use Ada.Text_IO, Ada.Directories, ES_Fichier;
 procedure test_es_fichier is
     fic : File_Type;
 begin
-    if not Exists ("salut/") then
-        Create_Directory ("salut/");
+    if not Exisence ("salut/") then
+        CreerDossier ("salut/");
     end if;
     CreerFichier (fic, "didier.txt");
-    Close (fic);
+    FermerFichier (fic);
     Put (Current_Directory);
 
-    Set_Directory ("salut/");
+    DesignerDossierPrincipal ("salut/");
     CreerFichier (fic, "les_copains.txt");
-    Close (fic);
+    FermerFichier (fic);
     New_Line;
     Put (Current_Directory);
-    if Exists ("les_copains.txt") then
+    if Exisence ("les_copains.txt") then
+        New_Line;
         Put ("LKsdjM");
     end if;
 end test_es_fichier;

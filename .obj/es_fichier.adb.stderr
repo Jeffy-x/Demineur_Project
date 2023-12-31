@@ -1,3 +1,0 @@
-es_fichier.adb:86:05: error: missing "return" statement in function body
-es_fichier.adb:88:09: error: cannot use call to function "Exists" as a statement
-es_fichier.adb:88:09: error: return value of a function call cannot be ignored
