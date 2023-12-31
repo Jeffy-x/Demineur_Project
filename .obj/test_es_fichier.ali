@@ -20,7 +20,7 @@ RV NO_SECONDARY_STACK
 RV NO_DEFAULT_INITIALIZATION
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U test_es_fichier%b	test_es_fichier.adb	cbb9b3ba NE OO SU IL
+U test_es_fichier%b	test_es_fichier.adb	b2fc2c1a NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.directories%s	a-direct.adb		a-direct.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
@@ -45,7 +45,7 @@ D a-stuten.ads		20220819080952 33c54060 ada.strings.utf_encoding%s
 D a-tags.ads		20220819080952 9eaa38c6 ada.tags%s
 D a-textio.ads		20220819080952 deada98a ada.text_io%s
 D a-unccon.ads		20220819080952 0e9b276f ada.unchecked_conversion%s
-D es_fichier.ads	20231230160303 4ab950b6 es_fichier%s
+D es_fichier.ads	20231231173923 33fccf16 es_fichier%s
 D interfac.ads		20220819080952 edec285f interfaces%s
 D i-cstrea.ads		20220819080952 e53d8b8e interfaces.c_streams%s
 D system.ads		20220819080952 a2da961d system%s
@@ -86,7 +86,7 @@ X 16 a-textio.ads
 263U14*New_Line 39|17s5
 464U14*Put 39|12s5 18s5 20s9
 X 18 es_fichier.ads
-3K9*ES_Fichier 30e15 39|1w36 2r35
+3K9*ES_Fichier 35e15 39|1w36 2r35
 6U15*CreerFichier 39|10s5 15s5
 X 39 test_es_fichier.adb
 4U11*test_es_fichier 4b11 22l5 22t20

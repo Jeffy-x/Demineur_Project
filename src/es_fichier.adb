@@ -85,6 +85,6 @@ package body ES_Fichier is
 
     function Exisence (chemin : String) return Boolean is
     begin
-        Exists (chemin);
+        return Exists (chemin);
     end Exisence;
 end ES_Fichier;

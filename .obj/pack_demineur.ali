@@ -24,7 +24,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
 
-U pack_demineur%b	pack_demineur.adb	48c32f7e NE OO PK
+U pack_demineur%b	pack_demineur.adb	3186b0de NE OO PK
 W ada%s			ada.ads			ada.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 Z ada.tags%s		a-tags.adb		a-tags.ali
@@ -49,7 +49,7 @@ D a-tags.ads		20220819080952 9eaa38c6 ada.tags%s
 D a-textio.ads		20220819080952 deada98a ada.text_io%s
 D a-unccon.ads		20220819080952 0e9b276f ada.unchecked_conversion%s
 D aleatoire.ads		20231215093752 5ebf4653 aleatoire%s
-D es_fichier.ads	20231230160303 4ab950b6 es_fichier%s
+D es_fichier.ads	20231231173923 33fccf16 es_fichier%s
 D interfac.ads		20220819080952 edec285f interfaces%s
 D i-cstrea.ads		20220819080952 e53d8b8e interfaces.c_streams%s
 D pack_demineur.ads	20231230182102 bb0703c5 pack_demineur%s
@@ -126,7 +126,7 @@ X 11 aleatoire.ads
 7U15*Initialise 16|101s13 103s13
 10V14*Random{integer} 16|102s29 104s31
 X 12 es_fichier.ads
-3K9*ES_Fichier 30e15 16|1w45 2r44
+3K9*ES_Fichier 35e15 16|1w45 2r44
 6U15*CreerFichier 16|244s9
 12U15*OuvrirFichierLect 16|376s9 415s9
 14U15*FermerFichier 16|400s9 421s9
