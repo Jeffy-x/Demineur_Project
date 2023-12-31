@@ -9,9 +9,13 @@ procedure demineur_v1.00 is
     package T_Nb_Colonne_IO is new Ada.Text_IO.Integer_IO (T_Nb_Colonne);
     use T_Nb_Colonne_IO;
     action : T_Action_Joueur;
+    choix_chargement_grille : T_Choix_Chargement_Grille;
     package T_Action_Joueur_IO is new
     Ada.Text_IO.Enumeration_IO (T_Action_Joueur);
     use T_Action_Joueur_IO;
+    package T_Choix_Chargement_Grille_IO is new
+    Ada.Text_IO.Enumeration_IO (T_Choix_Chargement_Grille);
+    use T_Choix_Chargement_Grille_IO;
     nb_bombes : T_Nb_Bombe;
     package T_Nb_Bombe_IO is new
     Ada.Text_IO.Integer_IO (T_Nb_Bombe);
@@ -34,5 +38,11 @@ begin
     Put_Line ("    \/___/  \/____/\/_/\/_/\/_"
     & "/\/_/\/_/\/_/\/____/ \/___/  \/_/ ");
     New_Line (2);
-
+    Put_Line ("Bienvenue dans le jeu de demineur, que voulez-vous faire ?");
+    Put_Line ("c => continuer la partie en cours");
+    Put_Line ("n => commencer une nouvelle partie");
+    Put_Line ("s => charger une sauvegarde");
+    Put_Line ("q => quitter");
+    Get (choix_chargement_grille);
+    
 end demineur_v1.00;
