@@ -83,8 +83,8 @@ package body ES_Fichier is
         Set_Directory (nom);
     end DesignerDossierPrincipal;
 
-    function Exisence (chemin : String) return Boolean is
+    function Existence (chemin : String) return Boolean is
     begin
         return Exists (chemin);
-    end Exisence;
+    end Existence;
 end ES_Fichier;

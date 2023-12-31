@@ -4,7 +4,7 @@ use Ada.Text_IO, Ada.Directories, ES_Fichier;
 procedure test_es_fichier is
     fic : File_Type;
 begin
-    if not Exisence ("salut/") then
+    if not Existence ("salut/") then
         CreerDossier ("salut/");
     end if;
     CreerFichier (fic, "didier.txt");
@@ -16,7 +16,7 @@ begin
     FermerFichier (fic);
     New_Line;
     Put (Current_Directory);
-    if Exisence ("les_copains.txt") then
+    if Existence ("les_copains.txt") then
         New_Line;
         Put ("LKsdjM");
     end if;

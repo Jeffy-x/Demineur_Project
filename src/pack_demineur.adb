@@ -442,4 +442,19 @@ package body Pack_Demineur is
         return chemin_global;
     end titre_to_chemin;
 
+    procedure initialisation_environnement is
+        fic : File_Type;
+    begin
+        if not Existence ("sauvegarde/") then
+            CreerDossier ("sauvegarde/");
+        end if;
+        if not Existence (".repertoire/") then
+            CreerDossier (".repertoire/");
+        end if;
+        if not Existence (".repertoire/titres_sauvegarde.txt") then
+            CreerFichier (fic, ".repertoire/titres_sauvegarde.txt");
+            FermerFichier (fic);
+        end if;
+
+    end initialisation_environnement;
 end Pack_Demineur;

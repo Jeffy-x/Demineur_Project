@@ -31,5 +31,5 @@ package ES_Fichier is
 
     procedure DesignerDossierPrincipal (nom : String);
 
-    function Exisence (chemin : String) return Boolean;
+    function Existence (chemin : String) return Boolean;
 end ES_Fichier;
