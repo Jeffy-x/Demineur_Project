@@ -13,7 +13,7 @@ procedure test_sauvegarder_partie is
     1 .. (nb_colonnes + 2));
 
     titre : T_Chaine;
-    parties_sauvegardee : T_Parties_Sauvegardees;
+    parties_sauvegardees : T_Parties_Sauvegardees;
     etat_partie : T_Etat_Partie := en_cours;
 begin
     initialisation_grille (grille, nb_lignes, nb_colonnes);
@@ -34,7 +34,7 @@ begin
        nb_lignes           => nb_lignes,
        nb_colonnes         => nb_colonnes,
        titre               => titre,
-       parties_sauvegardee => parties_sauvegardee);
+       parties_sauvegardees => parties_sauvegardees);
     New_Line;
     afficher_grille
       (grille      => grille,

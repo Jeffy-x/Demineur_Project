@@ -214,24 +214,24 @@ package body Pack_Demineur is
     end compter_case_a_ouvrir;
 
     procedure ajouter_sauvegarde (titre : T_Chaine;
-    parties_sauvegardee : in out T_Parties_Sauvegardees) is
+    parties_sauvegardees : in out T_Parties_Sauvegardees) is
     begin
-        if parties_sauvegardee.nb_titres_sauvegardes =
+        if parties_sauvegardees.nb_titres_sauvegardes =
         T_Indice_Liste_Sauvegarde'Last
         then
             Put_Line ("Vous avez trop de parties sauvegardees");
         else
-            parties_sauvegardee.nb_titres_sauvegardes :=
-            parties_sauvegardee.nb_titres_sauvegardes + 1;
-            parties_sauvegardee.titres
-            (parties_sauvegardee.nb_titres_sauvegardes) := titre;
+            parties_sauvegardees.nb_titres_sauvegardes :=
+            parties_sauvegardees.nb_titres_sauvegardes + 1;
+            parties_sauvegardees.titres
+            (parties_sauvegardees.nb_titres_sauvegardes) := titre;
         end if;
     end ajouter_sauvegarde;
 
     procedure sauvegarder_partie (grille : T_Grille;
     grille_solution : T_Grille; nb_lignes : T_Nb_Ligne;
     nb_colonnes : T_Nb_Colonne; titre : T_Chaine;
-    parties_sauvegardee : in out T_Parties_Sauvegardees) is
+    parties_sauvegardees : in out T_Parties_Sauvegardees) is
         chemin_global : T_Chaine;
         Fichier : File_Type;
         chemin_string : String (1 .. Natural (T_Indice_Chaine'Last));
@@ -261,7 +261,7 @@ package body Pack_Demineur is
             end loop;
             NouvelleLigne (Fichier);
         end loop;
-        ajouter_sauvegarde (chemin_global, parties_sauvegardee);
+        ajouter_sauvegarde (chemin_global, parties_sauvegardees);
     end sauvegarder_partie;
 
     procedure Put (chaine : T_Chaine) is
@@ -345,14 +345,14 @@ package body Pack_Demineur is
         end case;
     end character_to_elem_case;
 
-    procedure afficher_sauvegardes (parties_sauvegardee :
+    procedure afficher_sauvegardes (parties_sauvegardees :
     T_Parties_Sauvegardees) is
     begin
         Put ("Parties sauvegardees : " & T_Indice_Liste_Sauvegarde'Image
-        (parties_sauvegardee.nb_titres_sauvegardes));
-        for J in 1 .. parties_sauvegardee.nb_titres_sauvegardes loop
+        (parties_sauvegardees.nb_titres_sauvegardes));
+        for J in 1 .. parties_sauvegardees.nb_titres_sauvegardes loop
             New_Line;
-            Put (parties_sauvegardee.titres (J));
+            Put (parties_sauvegardees.titres (J));
         end loop;
     end afficher_sauvegardes;
 
@@ -457,4 +457,10 @@ package body Pack_Demineur is
         end if;
 
     end initialisation_environnement;
+
+    procedure enregistrer_sauvegardes is
+        
+    begin
+        
+    end enregistrer_sauvegardes;
 end Pack_Demineur;

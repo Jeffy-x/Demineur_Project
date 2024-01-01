@@ -14,5 +14,5 @@ begin
         ajouter_sauvegarde (titre, titres_sauvegardes);
     end loop;
     New_Line;
-    afficher_sauvegardes (parties_sauvegardee => titres_sauvegardes);
+    afficher_sauvegardes (parties_sauvegardees => titres_sauvegardes);
 end test_afficher_sauvegardes;

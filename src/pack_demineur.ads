@@ -95,10 +95,10 @@ package Pack_Demineur is
     procedure sauvegarder_partie (grille : T_Grille;
     grille_solution : T_Grille; nb_lignes : T_Nb_Ligne;
     nb_colonnes : T_Nb_Colonne; titre : T_Chaine;
-    parties_sauvegardee : in out T_Parties_Sauvegardees);
+    parties_sauvegardees : in out T_Parties_Sauvegardees);
 
     procedure ajouter_sauvegarde (titre : T_Chaine;
-    parties_sauvegardee : in out T_Parties_Sauvegardees);
+    parties_sauvegardees : in out T_Parties_Sauvegardees);
 
     procedure Put (chaine : T_Chaine);
 
@@ -109,7 +109,7 @@ package Pack_Demineur is
     function character_to_elem_case (char : Character) return T_Element_Case;
 
     procedure afficher_sauvegardes
-    (parties_sauvegardee : T_Parties_Sauvegardees);
+    (parties_sauvegardees : T_Parties_Sauvegardees);
 
     procedure charger_sauvegarde
     (grille : out T_Grille; grille_solution : out T_Grille;
@@ -122,4 +122,6 @@ package Pack_Demineur is
     function titre_to_chemin (titre : T_Chaine) return T_Chaine;
 
     procedure initialisation_environnement;
+
+    procedure enregistrer_sauvegardes (parties_sauvegardees : T_Parties_Sauvegardees);
 end Pack_Demineur;

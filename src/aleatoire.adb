@@ -10,7 +10,7 @@ package body Aleatoire is
     begin
         Max := Maximum;
         if Minimum <= Max then
-            Min := Minimum;
+            Min := Miœnimum;
         else
             Min := Maximum;
         end if;

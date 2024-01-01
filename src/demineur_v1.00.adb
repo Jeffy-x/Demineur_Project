@@ -21,7 +21,7 @@ procedure demineur_v1.00 is
     Ada.Text_IO.Integer_IO (T_Nb_Bombe);
     use T_Nb_Bombe_IO;
     etat_partie : T_Etat_Partie := en_cours;
-    parties_sauvegardee : T_Parties_Sauvegardees;
+    parties_sauvegardees : T_Parties_Sauvegardees;
 begin
     New_Line (100);
     Put_Line (" ____                         "
