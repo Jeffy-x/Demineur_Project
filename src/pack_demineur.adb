@@ -458,9 +458,18 @@ package body Pack_Demineur is
 
     end initialisation_environnement;
 
-    procedure enregistrer_sauvegardes is
-        
+    procedure enregistrer_sauvegardes
+    (parties_sauvegardees : T_Parties_Sauvegardees) is
+        fic : File_Type;
     begin
-        
+        OuvrirFichier (fic, ".repertoire/titres_sauvegarde.txt");
+        for J in 1 .. parties_sauvegardees.nb_titres_sauvegardes loop
+            AjouterAuFichier (fic, String (parties_sauvegardees.titres
+            (J).lettres (1 .. parties_sauvegardees.titres
+            (J).longueur_chaine)));
+            NouvelleLigne (fic);
+        end loop;
+        FermerFichier (fic);
     end enregistrer_sauvegardes;
+
 end Pack_Demineur;
