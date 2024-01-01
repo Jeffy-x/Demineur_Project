@@ -451,18 +451,18 @@ package body Pack_Demineur is
         if not Existence (".repertoire/") then
             CreerDossier (".repertoire/");
         end if;
-        if not Existence (".repertoire/titres_sauvegarde.txt") then
-            CreerFichier (fic, ".repertoire/titres_sauvegarde.txt");
+        if not Existence (".repertoire/titres_sauvegardes.txt") then
+            CreerFichier (fic, ".repertoire/titres_sauvegardes.txt");
             FermerFichier (fic);
         end if;
 
     end initialisation_environnement;
 
-    procedure enregistrer_sauvegardes
+    procedure enregistrer_liste_sauvegardes
     (parties_sauvegardees : T_Parties_Sauvegardees) is
         fic : File_Type;
     begin
-        OuvrirFichier (fic, ".repertoire/titres_sauvegarde.txt");
+        OuvrirFichier (fic, ".repertoire/titres_sauvegardes.txt");
         for J in 1 .. parties_sauvegardees.nb_titres_sauvegardes loop
             AjouterAuFichier (fic, String (parties_sauvegardees.titres
             (J).lettres (1 .. parties_sauvegardees.titres
@@ -470,6 +470,28 @@ package body Pack_Demineur is
             NouvelleLigne (fic);
         end loop;
         FermerFichier (fic);
-    end enregistrer_sauvegardes;
+    end enregistrer_liste_sauvegardes;
+
+    procedure charger_liste_sauvegardes
+    (parties_sauvegardees : out T_Parties_Sauvegardees) is
+        Fichier : File_Type;
+        titre : T_Chaine;
+        titre_string : String;
+        titre_lg : Natural := 0;
+        char : Character;
+    begin
+        OuvrirFichierLect (Fichier, ".repertoire/titres_sauvegardes.adb");
+        while not FinFichier (Fichier) loop
+            titre_lg := 0;
+            while not FinLigne (Fichier) loop
+                titre_lg := titre_lg + 1;
+                Lecture (Fichier, titre_string (titre_lg));
+            end loop;
+            titre.longueur_chaine := T_Indice_Chaine (titre_lg);
+            titre.lettres (1 .. titre.longueur_chaine) :=
+            T_Lettres (titre_string) (1 .. titre.longueur_chaine);
+            ajouter_sauvegarde (titre, parties_sauvegardees);
+        end loop;
+    end charger_liste_sauvegardes;
 
 end Pack_Demineur;
