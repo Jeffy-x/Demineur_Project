@@ -478,20 +478,25 @@ package body Pack_Demineur is
         titre : T_Chaine;
         titre_string : String (1 .. Natural (T_Indice_Chaine'Last));
         titre_lg : Natural := 0;
-        --  char : Character;
+        char : Character;
     begin
         OuvrirFichierLect (Fichier, ".repertoire/titres_sauvegardes.txt");
         while not FinFichier (Fichier) loop
-            titre_lg := 0;
-            while not FinLigne (Fichier) loop
+            Lecture (Fichier, char);
+            if not FinLigne (Fichier) then
                 titre_lg := titre_lg + 1;
-                Lecture (Fichier, titre_string (titre_lg));
-            end loop;
-            titre.longueur_chaine := T_Indice_Chaine (titre_lg);
-            titre.lettres (1 .. titre.longueur_chaine) :=
-            T_Lettres (titre_string) (1 .. titre.longueur_chaine);
-            ajouter_sauvegarde (titre, parties_sauvegardees);
+                titre_string (titre_lg) := char;
+            else
+                titre_lg := titre_lg + 1;
+                titre_string (titre_lg) := char;
+                titre.longueur_chaine := T_Indice_Chaine (titre_lg);
+                titre.lettres (1 .. titre.longueur_chaine) :=
+                T_Lettres (titre_string) (1 .. titre.longueur_chaine);
+                titre_lg := 0;
+                ajouter_sauvegarde (titre, parties_sauvegardees);
+            end if;
         end loop;
+        FermerFichier (Fichier);
     end charger_liste_sauvegardes;
 
 end Pack_Demineur;
