@@ -480,7 +480,7 @@ package body Pack_Demineur is
         titre_lg : Natural := 0;
         --  char : Character;
     begin
-        OuvrirFichierLect (Fichier, ".repertoire/titres_sauvegardes.adb");
+        OuvrirFichierLect (Fichier, ".repertoire/titres_sauvegardes.txt");
         while not FinFichier (Fichier) loop
             titre_lg := 0;
             while not FinLigne (Fichier) loop
