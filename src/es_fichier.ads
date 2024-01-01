@@ -32,4 +32,6 @@ package ES_Fichier is
     procedure DesignerDossierPrincipal (nom : String);
 
     function Existence (chemin : String) return Boolean;
+
+    procedure ReinitialisationFichier (fic : in out File_Type);
 end ES_Fichier;

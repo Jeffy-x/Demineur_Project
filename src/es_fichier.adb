@@ -87,4 +87,9 @@ package body ES_Fichier is
     begin
         return Exists (chemin);
     end Existence;
+
+    procedure ReinitialisationFichier (fic : in out File_Type) is
+    begin
+        Reset (fic);
+    end ReinitialisationFichier;
 end ES_Fichier;
