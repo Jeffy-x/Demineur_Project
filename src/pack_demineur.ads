@@ -123,5 +123,6 @@ package Pack_Demineur is
 
     procedure initialisation_environnement;
 
-    procedure enregistrer_sauvegardes (parties_sauvegardees : T_Parties_Sauvegardees);
+    procedure enregistrer_sauvegardes
+    (parties_sauvegardees : T_Parties_Sauvegardees);
 end Pack_Demineur;

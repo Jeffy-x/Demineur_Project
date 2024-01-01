@@ -98,8 +98,8 @@ begin
                 Put_Line ("Vous etes une vraie quiche, vous etes decedes...");
             when gagne =>
                 Put_Line ("Felicitations ! Vous avez survecu...");
-            when others =>
-                null;
+            when en_cours =>
+                Put_Line ("A bientot !");
         end case;
     end;
 end jeu;
