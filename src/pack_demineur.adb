@@ -476,9 +476,9 @@ package body Pack_Demineur is
     (parties_sauvegardees : out T_Parties_Sauvegardees) is
         Fichier : File_Type;
         titre : T_Chaine;
-        titre_string : String;
+        titre_string : String (1 .. Natural (T_Indice_Chaine'Last));
         titre_lg : Natural := 0;
-        char : Character;
+        --  char : Character;
     begin
         OuvrirFichierLect (Fichier, ".repertoire/titres_sauvegardes.adb");
         while not FinFichier (Fichier) loop
