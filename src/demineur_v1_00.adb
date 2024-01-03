@@ -1,7 +1,7 @@
-with Ada.Text_IO, Pack_Demineur;
-use Ada.Text_IO, Pack_Demineur;
+with Ada.Text_IO, Pack_Demineur, ES_Fichier;
+use Ada.Text_IO, Pack_Demineur, ES_Fichier;
 
-procedure demineur_v1.00 is
+procedure demineur_v1_00 is
     nb_lignes : T_Nb_Ligne;
     nb_colonnes : T_Nb_Colonne;
     package T_Nb_Ligne_IO is new Ada.Text_IO.Integer_IO (T_Nb_Ligne);
@@ -23,8 +23,7 @@ procedure demineur_v1.00 is
     etat_partie : T_Etat_Partie := en_cours;
     parties_sauvegardees : T_Parties_Sauvegardees;
     titre : T_Chaine;
-    Fichier : File_Type;
-    val_ent : Integer;
+    chemin : T_Chaine;
 begin
     initialisation_environnement;
     charger_liste_sauvegardes (parties_sauvegardees);
@@ -53,7 +52,8 @@ begin
     case choix_chargement_grille is
         when n =>
             New_Line (2);
-            Put_Line ("Veillez donner un nombre de lignes, de colonnes et de bombes");
+            Put_Line ("Veillez donner un nombre de "
+            & "lignes, de colonnes et de bombes");
             Get (nb_lignes);
             Get (nb_colonnes);
             Get (nb_bombes);
@@ -69,7 +69,11 @@ begin
             titre_to_chemin (titre));
         when c =>
             if Existence (".repertoire/sauvegarde_rapide.txt") then
-                charger_lg_grille (nb_lignes, nb_colonnes, ".repertoire/sauvegarde_rapide.txt");
+                chemin.longueur_chaine := 33;
+                chemin.lettres (1 .. chemin.longueur_chaine) :=
+                ".repertoire/sauvegarde_rapide.txt";
+                charger_lg_grille (nb_lignes,
+                nb_colonnes, chemin);
             else
                 Put_Line ("Vous n'avez pas partie en cours !");
             end if;
@@ -87,8 +91,11 @@ begin
     begin
         case choix_chargement_grille is
             when c =>
+                chemin.longueur_chaine := 33;
+                chemin.lettres (1 .. chemin.longueur_chaine) :=
+                ".repertoire/sauvegarde_rapide.txt";
                 charger_sauvegarde (grille, grille_solution,
-                nb_lignes, nb_colonnes, ".repertoire/sauvegarde_rapide.txt");
+                nb_lignes, nb_colonnes, chemin);
             when s =>
                 afficher_sauvegardes (parties_sauvegardees);
                 Put_Line ("Choisissez la sauvegarde à charger : ");
@@ -97,7 +104,8 @@ begin
                 nb_lignes, nb_colonnes, titre_to_chemin (titre));
             when n =>
                 initialisation_grille (grille, nb_lignes, nb_colonnes);
-                initialisation_bombe (grille_solution, nb_lignes, nb_colonnes);
+                initialisation_bombe (grille_solution,
+                nb_lignes, nb_colonnes, nb_bombes);
             when others =>
                 null;
         end case;
@@ -154,4 +162,4 @@ begin
         end case;
     end;
 
-end demineur_v1.00;
+end demineur_v1_00;
