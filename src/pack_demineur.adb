@@ -451,7 +451,10 @@ package body Pack_Demineur is
             CreerFichier (fic, ".repertoire/titres_sauvegardes.txt");
             FermerFichier (fic);
         end if;
-
+        if not Existence (".repertoire/sauvegarde_rapide.txt") then
+            CreerFichier (fic, ".repertoire/sauvegarde_rapide.txt");
+            FermerFichier (fic);
+        end if;
     end initialisation_environnement;
 
     procedure enregistrer_liste_sauvegardes
