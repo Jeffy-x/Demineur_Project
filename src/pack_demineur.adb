@@ -230,17 +230,15 @@ package body Pack_Demineur is
 
     procedure sauvegarder_partie (grille : T_Grille;
     grille_solution : T_Grille; nb_lignes : T_Nb_Ligne;
-    nb_colonnes : T_Nb_Colonne; titre : T_Chaine;
+    nb_colonnes : T_Nb_Colonne; chemin : T_Chaine;
     parties_sauvegardees : in out T_Parties_Sauvegardees) is
-        chemin_global : T_Chaine;
         Fichier : File_Type;
         chemin_string : String (1 .. Natural (T_Indice_Chaine'Last));
         chemin_longueur : Natural;
     begin
-        chemin_global := titre_to_chemin (titre);
-        chemin_longueur := Natural (chemin_global.longueur_chaine);
+        chemin_longueur := Natural (chemin.longueur_chaine);
         chemin_string (1 .. chemin_longueur) :=
-        String (chemin_global.lettres) (1 .. chemin_longueur);
+        String (chemin.lettres) (1 .. chemin_longueur);
         CreerFichier (Fichier, chemin_string (1 .. chemin_longueur));
         AjouterAuFichier (Fichier, Integer (nb_lignes));
         NouvelleLigne (Fichier);
@@ -261,7 +259,7 @@ package body Pack_Demineur is
             end loop;
             NouvelleLigne (Fichier);
         end loop;
-        ajouter_sauvegarde (chemin_global, parties_sauvegardees);
+        ajouter_sauvegarde (chemin, parties_sauvegardees);
     end sauvegarder_partie;
 
     procedure Put (chaine : T_Chaine) is
@@ -358,8 +356,7 @@ package body Pack_Demineur is
 
     procedure charger_sauvegarde (grille : out T_Grille;
     grille_solution : out T_Grille;
-    nb_lignes : T_Nb_Ligne; nb_colonnes : T_Nb_Colonne; titre : T_Chaine) is
-        chemin_global : T_Chaine;
+    nb_lignes : T_Nb_Ligne; nb_colonnes : T_Nb_Colonne; chemin : T_Chaine) is
         Fichier : File_Type;
         chemin_string : String (1 .. Natural (T_Indice_Chaine'Last));
         chemin_longueur : Natural;
@@ -369,10 +366,9 @@ package body Pack_Demineur is
         initialisation_grille (grille, nb_lignes, nb_colonnes);
         grille_solution := (others => (others => vide));
 
-        chemin_global := titre_to_chemin (titre);
-        chemin_longueur := Natural (chemin_global.longueur_chaine);
+        chemin_longueur := Natural (chemin.longueur_chaine);
         chemin_string (1 .. chemin_longueur) :=
-        String (chemin_global.lettres) (1 .. chemin_longueur);
+        String (chemin.lettres) (1 .. chemin_longueur);
         OuvrirFichierLect
     (Fichier, chemin_string (1 .. chemin_longueur));
         Lecture (Fichier, val_ent);
@@ -401,17 +397,16 @@ package body Pack_Demineur is
     end charger_sauvegarde;
 
     procedure charger_lg_grille (nb_lignes : out T_Nb_Ligne;
-    nb_colonnes : out T_Nb_Colonne; titre : T_Chaine) is
+    nb_colonnes : out T_Nb_Colonne; chemin : T_Chaine) is
         chemin_global : T_Chaine;
         Fichier : File_Type;
         chemin_string : String (1 .. Natural (T_Indice_Chaine'Last));
         chemin_longueur : Natural;
         val_ent : Integer;
     begin
-        chemin_global := titre_to_chemin (titre);
-        chemin_longueur := Natural (chemin_global.longueur_chaine);
+        chemin_longueur := Natural (chemin.longueur_chaine);
         chemin_string (1 .. chemin_longueur) :=
-        String (chemin_global.lettres) (1 .. chemin_longueur);
+        String (chemin.lettres) (1 .. chemin_longueur);
         OuvrirFichierLect
     (Fichier, chemin_string (1 .. chemin_longueur));
         Lecture (Fichier, val_ent);

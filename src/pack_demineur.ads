@@ -94,7 +94,7 @@ package Pack_Demineur is
     --             de jeu ainsi que la grille_solution.
     procedure sauvegarder_partie (grille : T_Grille;
     grille_solution : T_Grille; nb_lignes : T_Nb_Ligne;
-    nb_colonnes : T_Nb_Colonne; titre : T_Chaine;
+    nb_colonnes : T_Nb_Colonne; chemin : T_Chaine;
     parties_sauvegardees : in out T_Parties_Sauvegardees);
 
     procedure ajouter_sauvegarde (titre : T_Chaine;
@@ -114,10 +114,10 @@ package Pack_Demineur is
     procedure charger_sauvegarde
     (grille : out T_Grille; grille_solution : out T_Grille;
     nb_lignes : T_Nb_Ligne;
-    nb_colonnes : T_Nb_Colonne; titre : T_Chaine);
+    nb_colonnes : T_Nb_Colonne; chemin : T_Chaine);
 
     procedure charger_lg_grille (nb_lignes : out T_Nb_Ligne;
-    nb_colonnes : out T_Nb_Colonne; titre : T_Chaine);
+    nb_colonnes : out T_Nb_Colonne; chemin : T_Chaine);
 
     function titre_to_chemin (titre : T_Chaine) return T_Chaine;
 
