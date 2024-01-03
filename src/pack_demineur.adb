@@ -398,7 +398,6 @@ package body Pack_Demineur is
 
     procedure charger_lg_grille (nb_lignes : out T_Nb_Ligne;
     nb_colonnes : out T_Nb_Colonne; chemin : T_Chaine) is
-        chemin_global : T_Chaine;
         Fichier : File_Type;
         chemin_string : String (1 .. Natural (T_Indice_Chaine'Last));
         chemin_longueur : Natural;

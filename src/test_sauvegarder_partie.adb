@@ -13,6 +13,7 @@ procedure test_sauvegarder_partie is
     1 .. (nb_colonnes + 2));
 
     titre : T_Chaine;
+    chemin : T_Chaine;
     parties_sauvegardees : T_Parties_Sauvegardees;
     etat_partie : T_Etat_Partie := en_cours;
 begin
@@ -28,12 +29,13 @@ begin
        etat_partie     => etat_partie);
     Put_Line ("Donnez le nom de la sauvegarde : ");
     Get_Line (titre.lettres, titre.longueur_chaine);
+    chemin := titre_to_chemin (titre => titre);
     sauvegarder_partie
       (grille              => grille,
        grille_solution     => grille_solution,
        nb_lignes           => nb_lignes,
        nb_colonnes         => nb_colonnes,
-       titre               => titre,
+       chemin               => chemin,
        parties_sauvegardees => parties_sauvegardees);
     New_Line;
     afficher_grille
