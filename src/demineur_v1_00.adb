@@ -56,15 +56,13 @@ begin
         Get (nb_lignes);
         Get (nb_colonnes);
         Get (nb_bombes);
-        --  initialisation_grille (grille);
-        --  initialisation_bombe (grille_solution);
     elsif choix_chargement_grille = s then
         New_Line (2);
         afficher_sauvegardes (parties_sauvegardees);
         New_Line;
         Put_Line ("Quelle sauvegarde voulez vous utiliser ? ");
         Get_Line (titre.lettres, titre.longueur_chaine);
-        Get_Line (titre.lettres, titre.longueur_chaine);
+        --  Get_Line (titre.lettres, titre.longueur_chaine);
         Put (titre);
         chemin := titre_to_chemin (titre);
         Put (chemin);
@@ -94,29 +92,14 @@ begin
     begin
         case choix_chargement_grille is
             when c =>
-                New_Line;
-                Put ("Debut C");
-                New_Line;
                 chemin.longueur_chaine := 33;
                 chemin.lettres (1 .. chemin.longueur_chaine) :=
                 ".repertoire/sauvegarde_rapide.txt";
                 charger_sauvegarde (grille, grille_solution,
                 nb_lignes, nb_colonnes, chemin);
-                New_Line;
-                Put ("Fin C");
-                New_Line;
             when s =>
-                New_Line;
-                Put ("Debut S");
-                New_Line;
-                afficher_sauvegardes (parties_sauvegardees);
-                Put_Line ("Choisissez la sauvegarde à charger : ");
-                Get_Line (titre.lettres, titre.longueur_chaine);
                 charger_sauvegarde (grille, grille_solution,
                 nb_lignes, nb_colonnes, titre_to_chemin (titre));
-                New_Line;
-                Put ("Fin S");
-                New_Line;
 
             when n =>
                 initialisation_grille (grille, nb_lignes, nb_colonnes);
