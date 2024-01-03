@@ -86,10 +86,71 @@ begin
         colonne : T_Colonne;
     begin
         case choix_chargement_grille is
-            when s or c =>
-                
+            when c =>
+                charger_sauvegarde (grille, grille_solution,
+                nb_lignes, nb_colonnes, ".repertoire/sauvegarde_rapide.txt");
+            when s =>
+                afficher_sauvegardes (parties_sauvegardees);
+                Put_Line ("Choisissez la sauvegarde à charger : ");
+                Get_Line (titre.lettres, titre.longueur_chaine);
+                charger_sauvegarde (grille, grille_solution,
+                nb_lignes, nb_colonnes, titre_to_chemin (titre));
+            when n =>
+                initialisation_grille (grille, nb_lignes, nb_colonnes);
+                initialisation_bombe (grille_solution, nb_lignes, nb_colonnes);
             when others =>
-                
+                null;
+        end case;
+        --  Partie similaire au programme jeu
+        loop
+            New_Line (100);
+            afficher_grille (grille, nb_lignes, nb_colonnes);
+            New_Line;
+            Put_Line ("Quelle action voulez-vous effectuer ?");
+            Put_Line ("poser/retirer un drapeau => p");
+            Put_Line ("ouvrir une case => o");
+            Put_Line ("quitter => q");
+            New_Line;
+            Get (action);
+            New_Line;
+            case action is
+                when q =>
+                    Put_Line ("Fermeture du jeu ...");
+                    Put_Line ("Nous vous remercions de votre visite"
+                    & " et a bientot...");
+                    exit;
+                when p =>
+                    Put_Line ("Donnez les coordonnees du drapeau a poser ou"
+                    & " a retirer ");
+                    Get (ligne);
+                    Get (colonne);
+                    poser_drapeau (grille, ligne, colonne);
+                when o =>
+                    Put_Line ("Donnez les coordonnees de la case a ouvrir");
+                    Get (ligne);
+                    Get (colonne);
+                    ouvrir_case (grille, grille_solution,
+                    ligne, colonne, etat_partie);
+                    if etat_partie = perdu then
+                        exit;
+                    elsif compter_case_a_ouvrir (grille,
+                    grille_solution, nb_lignes, nb_colonnes) = 0
+                    then
+                        etat_partie := gagne;
+                        exit;
+                    end if;
+            end case;
+        end loop;
+        New_Line (100);
+        afficher_grille (grille, nb_lignes, nb_colonnes);
+        New_Line;
+        case etat_partie is
+            when perdu =>
+                Put_Line ("Vous etes une vraie quiche, vous etes decedes...");
+            when gagne =>
+                Put_Line ("Felicitations ! Vous avez survecu...");
+            when en_cours =>
+                Put_Line ("A bientot !");
         end case;
     end;
 
