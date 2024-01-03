@@ -64,6 +64,8 @@ begin
         afficher_sauvegardes (parties_sauvegardees);
         New_Line;
         Put_Line ("Quelle sauvegarde voulez vous utiliser ? ");
+        --  Etrangement, si je ne mets qu'un procedure Get_Line
+        --  le programme n'en tient pas compte
         Get_Line (titre.lettres, titre.longueur_chaine);
         Get_Line (titre.lettres, titre.longueur_chaine);
         New_Line;
