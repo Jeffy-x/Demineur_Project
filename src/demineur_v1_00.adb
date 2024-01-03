@@ -24,6 +24,9 @@ procedure demineur_v1_00 is
     parties_sauvegardees : T_Parties_Sauvegardees;
     titre : T_Chaine;
     chemin : T_Chaine;
+    package T_Nb_Case_A_Ouvrir_IO is new
+    Ada.Text_IO.Integer_IO (T_Nb_Case_A_Ouvrir);
+    use T_Nb_Case_A_Ouvrir_IO;
 begin
     initialisation_environnement;
     charger_liste_sauvegardes (parties_sauvegardees);
@@ -62,9 +65,11 @@ begin
         New_Line;
         Put_Line ("Quelle sauvegarde voulez vous utiliser ? ");
         Get_Line (titre.lettres, titre.longueur_chaine);
-        --  Get_Line (titre.lettres, titre.longueur_chaine);
+        Get_Line (titre.lettres, titre.longueur_chaine);
+        New_Line;
         Put (titre);
         chemin := titre_to_chemin (titre);
+        New_Line;
         Put (chemin);
         charger_lg_grille (nb_lignes, nb_colonnes,
         chemin);
@@ -122,9 +127,16 @@ begin
             New_Line;
             case action is
                 when q =>
-                    Put_Line ("Fermeture du jeu ...");
-                    Put_Line ("Nous vous remercions de votre visite"
-                    & " et a bientot...");
+                    chemin.longueur_chaine := 33;
+                    chemin.lettres (1 .. chemin.longueur_chaine) :=
+                    ".repertoire/sauvegarde_rapide.txt";
+                    sauvegarder_partie
+                      (grille               => grille,
+                       grille_solution      => grille_solution,
+                       nb_lignes            => nb_lignes,
+                       nb_colonnes          => nb_colonnes,
+                       chemin               => chemin,
+                       parties_sauvegardees => parties_sauvegardees);
                     exit;
                 when p =>
                     Put_Line ("Donnez les coordonnees du drapeau a poser ou"
@@ -143,6 +155,8 @@ begin
                     elsif compter_case_a_ouvrir (grille,
                     grille_solution, nb_lignes, nb_colonnes) = 0
                     then
+                        Put (compter_case_a_ouvrir (grille,
+                    grille_solution, nb_lignes, nb_colonnes));
                         etat_partie := gagne;
                         exit;
                     end if;
@@ -157,8 +171,11 @@ begin
             when gagne =>
                 Put_Line ("Felicitations ! Vous avez survecu...");
             when en_cours =>
-                Put_Line ("A bientot !");
+                null;
         end case;
+        Put_Line ("Fermeture du jeu ...");
+        Put_Line ("Nous vous remercions de votre visite"
+                    & " et a bientot...");
     end;
 
 end demineur_v1_00;
