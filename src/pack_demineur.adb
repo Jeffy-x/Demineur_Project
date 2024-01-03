@@ -259,7 +259,9 @@ package body Pack_Demineur is
             end loop;
             NouvelleLigne (Fichier);
         end loop;
-        ajouter_sauvegarde (chemin, parties_sauvegardees);
+        if chemin /= ".repertoire/sauvegarde_rapide.txt" then
+            ajouter_sauvegarde (chemin, parties_sauvegardees);
+        end if;
     end sauvegarder_partie;
 
     procedure Put (chaine : T_Chaine) is

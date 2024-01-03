@@ -65,15 +65,11 @@ begin
             New_Line;
             Put_Line ("Quelle sauvegarde voulez vous utiliser ? ");
             Get_Line (titre.lettres, titre.longueur_chaine);
-            charger_lg_grille (nb_lignes, nb_colonnes, titre);
+            charger_lg_grille (nb_lignes, nb_colonnes,
+            titre_to_chemin (titre));
         when c =>
             if Existence (".repertoire/sauvegarde_rapide.txt") then
-                OuvrirFichierLect (Fichier, ".repertoire/sauvegarde_rapide.txt");
-                Lecture (Fichier, val_ent);
-                nb_lignes := T_Nb_Ligne (val_ent);
-                Lecture (Fichier, val_ent);
-                nb_colonnes := T_Nb_Colonne (val_ent);
-                FermerFichier (Fichier);
+                charger_lg_grille (nb_lignes, nb_colonnes, ".repertoire/sauvegarde_rapide.txt");
             else
                 Put_Line ("Vous n'avez pas partie en cours !");
             end if;
