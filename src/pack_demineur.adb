@@ -161,6 +161,7 @@ package body Pack_Demineur is
     etat_partie : out T_Etat_Partie) is
         nb_bombe : T_Nb_Bombe;
     begin
+        etat_partie := en_cours;
         if grille (ligne + 1, colonne + 1) = cache then
             nb_bombe := compter_bombe (grille_solution, ligne, colonne);
             if grille_solution (ligne + 1, colonne + 1) = bombe then
@@ -262,6 +263,7 @@ package body Pack_Demineur is
         if chemin.lettres (1 .. 33) /= ".repertoire/sauvegarde_rapide.txt" then
             ajouter_sauvegarde (chemin, parties_sauvegardees);
         end if;
+        FermerFichier (Fichier);
     end sauvegarder_partie;
 
     procedure Put (chaine : T_Chaine) is

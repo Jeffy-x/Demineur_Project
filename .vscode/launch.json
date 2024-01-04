@@ -1,0 +1,428 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/jeu.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/jeu",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_es_fichier.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_es_fichier",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_get_line_t_chaine.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_get_line_t_chaine",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_ajouter_sauvegarde.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_ajouter_sauvegarde",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_sauvegarder_partie.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_sauvegarder_partie",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_afficher_sauvegardes.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_afficher_sauvegardes",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_titre_to_chemin.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_titre_to_chemin",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_charger_lg_grille.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_charger_lg_grille",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_charger_sauvegarde.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_charger_sauvegarde",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_es_fichier.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_es_fichier",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_initialisation_environnement.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_initialisation_environnement",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_enregistrer_liste_sauvegardes.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_enregistrer_liste_sauvegardes",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/test_charger_liste_sauvegardes.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/test_charger_liste_sauvegardes",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - Djoroukhian_Farge_Demineur/src/demineur_v1_00.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/Djoroukhian_Farge_Demineur/exec/demineur_v1_00",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build current project",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}

@@ -88,6 +88,8 @@ begin
                         etat_partie := gagne;
                         exit;
                     end if;
+                    when others =>
+                        null;
             end case;
         end loop;
         New_Line (100);

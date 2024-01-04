@@ -123,6 +123,7 @@ begin
             Put_Line ("Quelle action voulez-vous effectuer ?");
             Put_Line ("poser/retirer un drapeau => p");
             Put_Line ("ouvrir une case => o");
+            Put_Line ("sauvegarder => s");
             Put_Line ("quitter => q");
             New_Line;
             Get (action);
@@ -162,6 +163,18 @@ begin
                         etat_partie := gagne;
                         exit;
                     end if;
+                when s =>
+                    Put_Line ("Veillez entrer le nom que vous "
+                    & "souhaitez donner a la sauvegarde");
+                    Get_Line (titre.lettres, titre.longueur_chaine);
+                    chemin := titre_to_chemin (titre);
+                    sauvegarder_partie
+                      (grille               => grille,
+                       grille_solution      => grille_solution,
+                       nb_lignes            => nb_lignes,
+                       nb_colonnes          => nb_colonnes,
+                       chemin               => chemin,
+                       parties_sauvegardees => parties_sauvegardees);
             end case;
         end loop;
         New_Line (100);
