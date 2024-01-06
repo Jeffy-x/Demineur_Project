@@ -448,6 +448,15 @@ package body Pack_Demineur is
         return chemin_global;
     end titre_to_chemin;
 
+    function chemin_to_titre (chemin : T_Chaine) return T_Chaine is
+        titre : T_Chaine;
+    begin
+        titre.longueur_chaine := chemin.longueur_chaine - 15;
+        titre.lettres (1 .. titre.longueur_chaine) :=
+        chemin.lettres (12 .. (chemin.longueur_chaine - 4));
+        return titre;
+    end chemin_to_titre;
+
     procedure initialisation_environnement is
         fic : File_Type;
     begin

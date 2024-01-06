@@ -121,6 +121,8 @@ package Pack_Demineur is
 
     function titre_to_chemin (titre : T_Chaine) return T_Chaine;
 
+    function chemin_to_titre (chemin : T_Chaine) return T_Chaine;
+
     procedure initialisation_environnement;
 
     procedure enregistrer_liste_sauvegardes
