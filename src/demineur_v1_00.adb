@@ -52,6 +52,7 @@ begin
     Put_Line ("s => charger une sauvegarde");
     Put_Line ("q => quitter");
     Get (choix_chargement_grille);
+    Skip_Line;
     if choix_chargement_grille = n then
         New_Line (2);
         Put_Line ("Veillez donner un nombre de "
@@ -59,6 +60,7 @@ begin
         Get (nb_lignes);
         Get (nb_colonnes);
         Get (nb_bombes);
+        Skip_Line;
     elsif choix_chargement_grille = s then
         New_Line (2);
         afficher_sauvegardes (parties_sauvegardees);
@@ -66,7 +68,7 @@ begin
         Put_Line ("Quelle sauvegarde voulez vous utiliser ? ");
         --  Etrangement, si je ne mets qu'un procedure Get_Line
         --  le programme n'en tient pas compte
-        Get_Line (titre.lettres, titre.longueur_chaine);
+        --  Get_Line (titre.lettres, titre.longueur_chaine);
         Get_Line (titre.lettres, titre.longueur_chaine);
         New_Line;
         Put (titre);
@@ -127,6 +129,7 @@ begin
             Put_Line ("quitter => q");
             New_Line;
             Get (action);
+            Skip_Line;
             New_Line;
             case action is
                 when q =>
@@ -146,11 +149,13 @@ begin
                     & " a retirer ");
                     Get (ligne);
                     Get (colonne);
+                    Skip_Line;
                     poser_drapeau (grille, ligne, colonne);
                 when o =>
                     Put_Line ("Donnez les coordonnees de la case a ouvrir");
                     Get (ligne);
                     Get (colonne);
+                    Skip_Line;
                     ouvrir_case (grille, grille_solution,
                     ligne, colonne, etat_partie);
                     if etat_partie = perdu then
@@ -166,10 +171,6 @@ begin
                 when s =>
                     Put_Line ("Veillez entrer le nom que vous "
                     & "souhaitez donner a la sauvegarde");
-                    --  Un problème similaire à celui du dessus
-                    --  Intervient si on ne met pas deux procedures
-                    --  Get_Line
-                    Get_Line (titre.lettres, titre.longueur_chaine);
                     Get_Line (titre.lettres, titre.longueur_chaine);
                     chemin := titre_to_chemin (titre);
                     sauvegarder_partie

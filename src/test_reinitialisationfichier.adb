@@ -3,7 +3,7 @@ use Ada.Text_IO, ES_Fichier, Pack_Demineur;
 
 procedure test_ReinitialisationFichier is
     fic : File_Type;
-    chaine : T_Chaine
+    chaine : T_Chaine;
 begin
     if not Existence ("Test_Divers/") then
         CreerDossier ("Test_Divers/");
@@ -18,6 +18,8 @@ begin
         AjouterAuFichier
         (fic, String (chaine.lettres (1 .. chaine.longueur_chaine)));
     end loop;
-    ReinitialisationFichier (fic => fic);
+    FermerFichier (fic);
+    OuvrirFichier (fic, "Test_Divers/Test_ReinitialisationFichier.txt");
+    ReinitialisationFichier (fic);
     FermerFichier (fic);
 end test_ReinitialisationFichier;

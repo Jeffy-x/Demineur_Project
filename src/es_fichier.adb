@@ -90,6 +90,6 @@ package body ES_Fichier is
 
     procedure ReinitialisationFichier (fic : in out File_Type) is
     begin
-        Reset (fic);
+        Reset (fic, Out_File);
     end ReinitialisationFichier;
 end ES_Fichier;

@@ -16,7 +16,8 @@ project Projet_Demineur is
                 "test_initialisation_environnement.adb",
                 "test_enregistrer_liste_sauvegardes.adb",
                 "test_charger_liste_sauvegardes.adb",
-                "demineur_v1_00.adb");
+                "demineur_v1_00.adb",
+                "test_reinitialisationfichier.adb");
 
     package Compiler is
         for Default_Switches ("Ada")

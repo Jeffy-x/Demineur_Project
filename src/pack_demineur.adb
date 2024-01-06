@@ -274,21 +274,13 @@ package body Pack_Demineur is
         end loop;
     end Put;
 
-    --  Problemes : A certains moments, la procedure Get_Line (T_Lettres,
-    --  T_Indice_Chaine) fait comme si la commande entrée est une chaine
-    --  Vide.
     procedure Get_Line (lettres : out T_Lettres;
     longueur_chaine : out T_Indice_Chaine) is
         chaine_string : String (1 .. Natural (T_Indice_Chaine'Last));
         chaine_longueur : Natural;
     begin
         chaine_string (1) := 'a';
-        --  Put_Line ("avant Get_Line");
         Get_Line (chaine_string, chaine_longueur);
-        --  Put_Line ("apres Get_Line");
-        --  Put ("(");
-        --  Put (chaine_string (1 .. chaine_longueur));
-        --  Put (")");
         longueur_chaine := T_Indice_Chaine (chaine_longueur);
         lettres (1 .. longueur_chaine) :=
         T_Lettres (chaine_string) (1 .. longueur_chaine);
@@ -481,6 +473,9 @@ package body Pack_Demineur is
     (parties_sauvegardees : T_Parties_Sauvegardees) is
         fic : File_Type;
     begin
+        OuvrirFichier (fic, ".repertoire/titres_sauvegardes.txt");
+        ReinitialisationFichier (fic);
+        FermerFichier (fic);
         OuvrirFichier (fic, ".repertoire/titres_sauvegardes.txt");
         for J in 1 .. parties_sauvegardees.nb_titres_sauvegardes loop
             AjouterAuFichier (fic, String (parties_sauvegardees.titres
