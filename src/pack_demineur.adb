@@ -261,7 +261,8 @@ package body Pack_Demineur is
             NouvelleLigne (Fichier);
         end loop;
         if chemin.lettres (1 .. 33) /= ".repertoire/sauvegarde_rapide.txt" then
-            ajouter_sauvegarde (chemin, parties_sauvegardees);
+            ajouter_sauvegarde
+            (chemin_to_titre (chemin), parties_sauvegardees);
         end if;
         FermerFichier (Fichier);
     end sauvegarder_partie;
