@@ -273,14 +273,22 @@ package body Pack_Demineur is
         end loop;
     end Put;
 
+    --  Problemes : A certains moments, la procedure Get_Line (T_Lettres,
+    --  T_Indice_Chaine) fait comme si la commande entrée est une chaine
+    --  Vide.
     procedure Get_Line (lettres : out T_Lettres;
     longueur_chaine : out T_Indice_Chaine) is
         chaine_string : String (1 .. Natural (T_Indice_Chaine'Last));
-        chaine_longuer : Natural;
+        chaine_longueur : Natural;
     begin
-        chaine_string (1) := ' ';
-        Get_Line (chaine_string, chaine_longuer);
-        longueur_chaine := T_Indice_Chaine (chaine_longuer);
+        chaine_string (1) := 'a';
+        --  Put_Line ("avant Get_Line");
+        --  Get_Line (chaine_string, chaine_longueur);
+        --  Put_Line ("apres Get_Line");
+        --  Put ("(");
+        --  Put (chaine_string (1 .. chaine_longueur));
+        --  Put (")");
+        longueur_chaine := T_Indice_Chaine (chaine_longueur);
         lettres (1 .. longueur_chaine) :=
         T_Lettres (chaine_string) (1 .. longueur_chaine);
     end Get_Line;
