@@ -283,7 +283,7 @@ package body Pack_Demineur is
     begin
         chaine_string (1) := 'a';
         --  Put_Line ("avant Get_Line");
-        --  Get_Line (chaine_string, chaine_longueur);
+        Get_Line (chaine_string, chaine_longueur);
         --  Put_Line ("apres Get_Line");
         --  Put ("(");
         --  Put (chaine_string (1 .. chaine_longueur));
