@@ -166,6 +166,10 @@ begin
                 when s =>
                     Put_Line ("Veillez entrer le nom que vous "
                     & "souhaitez donner a la sauvegarde");
+                    --  Un problème similaire à celui du dessus
+                    --  Intervient si on ne met pas deux procedures
+                    --  Get_Line
+                    Get_Line (titre.lettres, titre.longueur_chaine);
                     Get_Line (titre.lettres, titre.longueur_chaine);
                     chemin := titre_to_chemin (titre);
                     sauvegarder_partie
