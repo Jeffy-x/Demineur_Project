@@ -179,6 +179,8 @@ begin
                        nb_colonnes          => nb_colonnes,
                        chemin               => chemin,
                        parties_sauvegardees => parties_sauvegardees);
+                    ajouter_sauvegarde (titre,
+                    parties_sauvegardees);
             end case;
         end loop;
         New_Line (100);
