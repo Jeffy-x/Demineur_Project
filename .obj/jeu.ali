@@ -1,0 +1,176 @@
+V "GNAT Lib v12"
+M P W=b
+A -O2
+A -gnatA
+A -gnatwa
+A -gnatwe
+A -gnatyg
+A -gnatyu
+A -gnatyx
+A -gnatyS
+A -gnatyI
+A -gnaty4
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U jeu%b			jeu.adb			3f6db6f7 NE OO SU IL
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.text_io.enumeration_aux%s  a-tienau.adb	a-tienau.ali
+Z ada.text_io.enumeration_io%s
+Z ada.text_io.generic_aux%s  a-tigeau.adb	a-tigeau.ali
+Z ada.text_io.integer_aux%s
+Z ada.text_io.integer_io%s
+W pack_demineur%s	pack_demineur.adb	pack_demineur.ali
+W system%s		system.ads		system.ali
+Z system.img_biu%s	s-imgbiu.ads		s-imgbiu.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.img_llb%s	s-imgllb.ads		s-imgllb.ali
+Z system.img_lli%s	s-imglli.ads		s-imglli.ali
+Z system.img_lllb%s	s-imglllb.ads		s-imglllb.ali
+Z system.img_llli%s	s-imgllli.ads		s-imgllli.ali
+Z system.img_lllw%s	s-imglllw.ads		s-imglllw.ali
+Z system.img_llw%s	s-imgllw.ads		s-imgllw.ali
+Z system.img_wiu%s	s-imgwiu.ads		s-imgwiu.ali
+Z system.val_enum_8%s	s-vaenu8.ads		s-vaenu8.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+Z system.val_lli%s	s-vallli.ads		s-vallli.ali
+Z system.val_llli%s	s-valllli.ads		s-valllli.ali
+
+D ada.ads		20220819080952 76789da1 ada%s
+D a-except.ads		20220819080952 2a7d8d70 ada.exceptions%s
+D a-ioexce.ads		20220819080952 40018c65 ada.io_exceptions%s
+D a-stream.ads		20220819080952 119b8fb3 ada.streams%s
+D a-string.ads		20220819080952 90ac6797 ada.strings%s
+D a-sttebu.ads		20220819080952 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20220819080952 33c54060 ada.strings.utf_encoding%s
+D a-tags.ads		20220819080952 9eaa38c6 ada.tags%s
+D a-textio.ads		20220819080952 deada98a ada.text_io%s
+D a-tienau.ads		20220819080952 6a9c157b ada.text_io.enumeration_aux%s
+D a-tienio.ads		20220819080952 2e79c9bf ada.text_io.enumeration_io%s
+D a-tienio.adb		20220819080952 c9e6b5af ada.text_io.enumeration_io%b
+D a-tigeau.ads		20220819080952 e643cdf3 ada.text_io.generic_aux%s
+D a-tiinau.ads		20220819080952 3ca4fcff ada.text_io.integer_aux%s
+D a-tiinau.adb		20220819080952 199a0c7a ada.text_io.integer_aux%b
+D a-tiinio.ads		20220819080952 390edddb ada.text_io.integer_io%s
+D a-tiinio.adb		20220819080952 b79731f4 ada.text_io.integer_io%b
+D a-unccon.ads		20220819080952 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20220819080952 edec285f interfaces%s
+D i-cstrea.ads		20220819080952 e53d8b8e interfaces.c_streams%s
+D jeu.adb		20240104184318 404b4585 jeu%b
+D pack_demineur.ads	20240115112506 a18b5af8 pack_demineur%s
+D system.ads		20220819080952 a2da961d system%s
+D s-casuti.ads		20220819080952 cf13d755 system.case_util%s
+D s-crtl.ads		20220819080952 8a0692f8 system.crtl%s
+D s-exctab.ads		20220819080952 91bef6ef system.exception_table%s
+D s-ficobl.ads		20220819080952 dc5161d4 system.file_control_block%s
+D s-imageb.ads		20220819080952 3953e0e6 system.image_b%s
+D s-imagei.ads		20220819080952 0d3f86a7 system.image_i%s
+D s-imagew.ads		20220819080952 9d2dd267 system.image_w%s
+D s-imgbiu.ads		20220819080952 0a8e1c41 system.img_biu%s
+D s-imgint.ads		20220819080952 bdb6f5ec system.img_int%s
+D s-imgllb.ads		20220819080952 47d0db9f system.img_llb%s
+D s-imglli.ads		20220819080952 3723d9ff system.img_lli%s
+D s-imglllb.ads		20220819080952 30212eed system.img_lllb%s
+D s-imgllli.ads		20220819080952 5cf3dc07 system.img_llli%s
+D s-imglllw.ads		20220819080952 9e2b0560 system.img_lllw%s
+D s-imgllw.ads		20220819080952 bf9c9c15 system.img_llw%s
+D s-imgwiu.ads		20220819080952 912a95f2 system.img_wiu%s
+D s-parame.ads		20220819080952 d494a4a6 system.parameters%s
+D s-putima.ads		20220819080952 4e095881 system.put_images%s
+D s-secsta.ads		20220819080952 62cd9202 system.secondary_stack%s
+D s-soflin.ads		20220819080952 df77073e system.soft_links%s
+D s-stache.ads		20220819080952 0b81c1fe system.stack_checking%s
+D s-stalib.ads		20220819080952 1c9580f6 system.standard_library%s
+D s-stoele.ads		20220819080952 6d8e1ff4 system.storage_elements%s
+D s-stoele.adb		20220819080952 8f5a9db6 system.storage_elements%b
+D s-traent.ads		20220819080952 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20220819080952 fa2a7f59 system.unsigned_types%s
+D s-vaenu8.ads		20220819080952 b7b91426 system.val_enum_8%s
+D s-valint.ads		20220819080952 85ddbf9c system.val_int%s
+D s-vallli.ads		20220819080952 88ead33b system.val_lli%s
+D s-valllli.ads		20220819080952 e68d7c3d system.val_llli%s
+D s-vallllu.ads		20220819080952 fcd04714 system.val_lllu%s
+D s-valllu.ads		20220819080952 ca6e26ce system.val_llu%s
+D s-valuns.ads		20220819080952 e8a1f424 system.val_uns%s
+D s-valuti.ads		20220819080952 4d0d41f3 system.val_util%s
+D s-valuei.ads		20220819080952 75953b98 system.value_i%s
+D s-valuen.ads		20220819080952 72b74993 system.value_n%s
+D s-valueu.ads		20220819080952 eb2f4477 system.value_u%s
+D s-wchcon.ads		20220819080952 d9032363 system.wch_con%s
+D unchconv.ads		20220819080952 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z b b [jeu standard 4 11 none]
+G r c none [jeu standard 4 11 none] [initialisation_grille pack_demineur 79 15 none]
+G r c none [jeu standard 4 11 none] [initialisation_bombe pack_demineur 42 15 none]
+G r c none [jeu standard 4 11 none] [afficher_grille pack_demineur 35 15 none]
+G r c none [jeu standard 4 11 none] [poser_drapeau pack_demineur 60 15 none]
+G r c none [jeu standard 4 11 none] [ouvrir_case pack_demineur 69 15 none]
+G r c none [jeu standard 4 11 none] [compter_case_a_ouvrir pack_demineur 86 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 21|1r6 2r5 7r34 9r36 13r5 17r5
+X 9 a-textio.ads
+58K13*Text_IO 727e16 21|1w10 2r9 7r38 9r40 13r9 17r9
+263U14*New_Line 21|22s5 37s5 55s13 57s13 62s13 64s13 95s9 97s9
+507U14*Put_Line 21|23s5 25s5 27s5 29s5 31s5 33s5 35s5 38s5 58s13 59s13 60s13
+. 61s13 67s21 68s21 72s21 78s21 100s17 102s17 104s17
+X 11 a-tienio.ads
+26k21*Enumeration_IO 76e31 21|13r17
+34U14 Get 21|63s13[12]
+X 16 a-tiinio.ads
+46k21*Integer_IO 108e27 21|7r46 9r48 17r17
+59U14 Get 21|39s5[7] 40s5[9] 41s5[16] 74s21[7] 75s21[9] 79s21[7] 80s21[9]
+X 21 jeu.adb
+4U11*jeu 4b11 107l5 107t8
+5i5 nb_lignes{22|2I10} 39m10 43r34 44r43 46r50 51r40 52r48 56r38 86r38 96r34
+6i5 nb_colonnes{22|3I10} 40m10 43r56 45r15 47r54 51r51 53r9 56r49 86r49 96r45
+7K13 T_Nb_Ligne_IO[16|46] 8r9
+9K13 T_Nb_Colonne_IO[16|46] 10r9
+11e5 action{22|9E10} 63m18 65r18
+12K13 T_Action_Joueur_IO[11|26] 14r9
+15i5 nb_bombes{22|4I10} 41m10 53r22
+16K13 T_Nb_Bombe_IO[16|46] 18r9
+19e5 etat_partie{22|12E10} 82m37 83r24 88m25 98r14
+43a9 grille{22|7A10} 51m32 51r32 56r30 76m36 76r36 81m34 81r34 85r50 96r26
+44a9 grille_solution{22|7A10} 52m31 52r31 81r42 86r21
+46I17 T_Ligne{22|2I10} 48r17
+47I17 T_Colonne{22|3I10} 49r19
+48i9 ligne{46I17} 74m26 76r44 79m26 82r21
+49i9 colonne{47I17} 75m26 76r51 80m26 82r28
+X 22 pack_demineur.ads
+1K9*Pack_Demineur 21|1w19 2r18 22|133e18
+2I10*T_Nb_Ligne<short_short_integer> 21|5r17 7r58 46r28
+3I10*T_Nb_Colonne<short_short_integer> 21|6r19 9r60 47r30
+4I10*T_Nb_Bombe<short_integer> 21|15r17 17r29
+7A10*T_Grille(5E10)<2I10><3I10> 21|43r18 44r27
+9E10*T_Action_Joueur 21|11r14 13r33 22|9e41
+9n30*p{9E10} 21|71r22
+9n33*o{9E10} 21|77r22
+9n36*q{9E10} 21|66r22
+12E10*T_Etat_Partie 21|19r19 22|12e51
+12n28*gagne{12E10} 21|88r40 101r18
+12n35*en_cours{12E10} 21|19r36 103r18
+12n45*perdu{12E10} 21|83r38 99r18
+13I10*T_Nb_Case_A_Ouvrir<short_integer>
+35U15*afficher_grille 21|56s13 96s9
+42U15*initialisation_bombe 21|52s9
+60U15*poser_drapeau 21|76s21
+69U15*ouvrir_case 21|81s21
+79U15*initialisation_grille 21|51s9
+86V14*compter_case_a_ouvrir{13I10} 21|85s27
+
