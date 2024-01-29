@@ -53,40 +53,41 @@ begin
     Put_Line ("q => quitter");
     Get (choix_chargement_grille);
     Skip_Line;
-    if choix_chargement_grille = n then
-        New_Line (2);
-        Put_Line ("Veillez donner un nombre de "
-        & "lignes, de colonnes et de bombes");
-        Get (nb_lignes);
-        Get (nb_colonnes);
-        Get (nb_bombes);
-        Skip_Line;
-    elsif choix_chargement_grille = s then
-        New_Line (2);
-        afficher_sauvegardes (parties_sauvegardees);
-        New_Line;
-        Put_Line ("Quelle sauvegarde voulez vous utiliser ? ");
-        Get_Line (titre.lettres, titre.longueur_chaine);
-        New_Line;
-        Put (titre);
-        chemin := titre_to_chemin (titre);
-        New_Line;
-        Put (chemin);
-        charger_lg_grille (nb_lignes, nb_colonnes,
-        chemin);
-    elsif choix_chargement_grille = c then
-        if Existence (".repertoire/sauvegarde_rapide.txt") then
-            chemin.longueur_chaine := 33;
-            chemin.lettres (1 .. chemin.longueur_chaine) :=
-            ".repertoire/sauvegarde_rapide.txt";
-            charger_lg_grille (nb_lignes,
-            nb_colonnes, chemin);
-        else
-            Put_Line ("Vous n'avez pas partie en cours !");
-        end if;
-    else
-        Put_Line ("La commande n'est pas encore définie");
-    end if;
+    case choix_chargement_grille is
+        when n =>
+            New_Line (2);
+            Put_Line ("Veillez donner un nombre de "
+            & "lignes, de colonnes et de bombes");
+            Get (nb_lignes);
+            Get (nb_colonnes);
+            Get (nb_bombes);
+            Skip_Line;
+        when s =>
+            New_Line (2);
+            afficher_sauvegardes (parties_sauvegardees);
+            New_Line;
+            Put_Line ("Quelle sauvegarde voulez vous utiliser ? ");
+            Get_Line (titre.lettres, titre.longueur_chaine);
+            New_Line;
+            Put (titre);
+            chemin := titre_to_chemin (titre);
+            New_Line;
+            Put (chemin);
+            charger_lg_grille (nb_lignes, nb_colonnes,
+            chemin);
+        when c =>
+            if Existence (".repertoire/sauvegarde_rapide.txt") then
+                chemin.longueur_chaine := 33;
+                chemin.lettres (1 .. chemin.longueur_chaine) :=
+                ".repertoire/sauvegarde_rapide.txt";
+                charger_lg_grille (nb_lignes,
+                nb_colonnes, chemin);
+            else
+                Put_Line ("Vous n'avez pas partie en cours !");
+            end if;
+        when others =>
+            Put_Line ("La commande n'est pas encore définie");
+    end case;
     declare
         grille : T_Grille (1 .. (nb_lignes + 2), 1 .. (nb_colonnes + 2));
         grille_solution : T_Grille (1 .. (nb_lignes + 2),
