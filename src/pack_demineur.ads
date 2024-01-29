@@ -130,4 +130,8 @@ package Pack_Demineur is
 
     procedure charger_liste_sauvegardes
     (parties_sauvegardees : out T_Parties_Sauvegardees);
+
+    procedure supprimer_elem_liste_sauvegarde
+    (parties_sauvegardees : in out T_Parties_Sauvegardees;
+    titre : T_Chaine);
 end Pack_Demineur;

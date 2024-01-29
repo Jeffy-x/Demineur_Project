@@ -513,4 +513,19 @@ package body Pack_Demineur is
         FermerFichier (Fichier);
     end charger_liste_sauvegardes;
 
+    procedure supprimer_elem_liste_sauvegarde
+    (parties_sauvegardees : in out T_Parties_Sauvegardees; titre : T_Chaine) is
+    begin
+        for J in 1 .. parties_sauvegardees.nb_titres_sauvegardes loop
+            if parties_sauvegardees.titres (J) = titre then
+                parties_sauvegardees.titres
+                (J .. parties_sauvegardees.nb_titres_sauvegardes) :=
+                parties_sauvegardees.titres
+                (J + 1 .. parties_sauvegardees.nb_titres_sauvegardes + 1);
+                parties_sauvegardees.nb_titres_sauvegardes :=
+                parties_sauvegardees.nb_titres_sauvegardes - 1;
+            end if;
+        end loop;
+    end supprimer_elem_liste_sauvegarde;
+
 end Pack_Demineur;
