@@ -29,43 +29,55 @@ package Pack_Demineur is
     end record;
 
     --  Action : afficher_grille
-    --  E/ : grille, nb_lignes, nb_colonnes
-    --  Necessite : grille déjà contrainte
-    --  Entraîne : affiche la grille
+    --  E/ : grille : T_Grille; nb_lignes : T_Nb_Ligne;
+    --  E/ : nb_colonnes : T_Nb_Colonne
+    --  Necessite : grille de dimension nb_lignes + 2,
+    --              nb_colonnes + 2
+    --  Ecriture : affiche la grille
     procedure afficher_grille (grille : T_Grille; nb_lignes : T_Nb_Ligne;
     nb_colonnes : T_Nb_Colonne);
 
     --  Action : initialisation_bombe
-    --  E/S/ : in (nb_lignes, nb_colonnes, nb_bombes), out grille_solution
-    --  Necessite : Néant
-    --  Entraîne : la grille solution est remplie de bombes
+    --  E/S/ : grille_solution : T_Grille
+    --  E/ : nb_lignes : T_Nb_Ligne; nb_colonnes : T_Nb_Colonne;
+    --  E/ : nb_bombes : T_Nb_Bombe
+    --  Necessite : grille solution de dimension nb_lignes + 2,
+    --              nb_colonnes + 2, nb_bombes <= nb_lignes * nb_colonnes
+    --  Entraîne : la grille solution est remplie de nb_bomes bombes
     procedure initialisation_bombe (grille_solution : in out T_Grille;
     nb_lignes : T_Nb_Ligne;
     nb_colonnes : T_Nb_Colonne; nb_bombes : T_Nb_Bombe);
 
     --  Action : compter_bombe
-    --  E/S/ : grille : T_Grille; nb_lignes : T_Nb_Ligne;
-    --  E/S/ : nb_colonnes : T_Nb_Colonne
-    --  Renvoie : le nombre de bombe dans les cases adjacentes à la
+    --  E/ : grille : T_Grille; ligne : T_Nb_Ligne;
+    --       colonne : T_Nb_Colonne
+    --  S/ : le nombre de bombe (T_Nb_Bombe) dans les cases adjacentes à la
     --            position ligne, colonne
-    --  Necessite : Néant
+    --  Necessite : (ligne, colonne) doit être une coordonnée de la grille
     function compter_bombe (grille_solution : T_Grille; ligne : T_Nb_Ligne;
     colonne : T_Nb_Colonne) return T_Nb_Bombe;
 
     --  Action : poser_drapeau
-    --  E/S/ : grille, position du drapeau
-    --  Necessite : Néant
+    --  E/S/ : grille : T_Grille
+    --  E/ : ligne : T_Nb_Ligne; colonne : T_Nb_Colonne
+    --  Necessite : (ligne, colonne) ∈ grille
     --  Entraîne : Place ou enlève un drapeau à la position donnée si c'est
     --          possible.
+    --  Ecriture : message d'erreur s'il n'est pas possible de
+    --             poser un drapeau
     procedure poser_drapeau (grille : in out T_Grille;
     ligne : T_Nb_Ligne; colonne : T_Nb_Colonne);
 
     --  Action : ouvrir_case
-    --  E/S/ : grille
-    --  E/ : grille solution; ligne; colonne
-    --  Necessite : néant
+    --  E/S/ : grille : T_Grille
+    --  E/ : grille solution : T_Grille;
+    --       ligne : T_Nb_Ligne; colonne : T_Nb_Colonne
+    --  S/ : etat_partie : T_Etat_Partie
+    --  Necessite : (ligne, colonne) ∈ grille
     --  Action : ouvre la case considérée et les cases le groupe de cases
-    --           adjacentes qui ne sont pas des bombes
+    --           adjacentes qui ne sont pas des bombes. Si la case ouverte
+    --           est une case vide alors toutes les autres cases vides
+    --           ajacentes sont ouvertes par récursivité
     procedure ouvrir_case (grille : in out T_Grille;
     grille_solution : T_Grille;
     ligne : T_Nb_Ligne; colonne : T_Nb_Colonne;
