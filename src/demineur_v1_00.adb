@@ -4,6 +4,8 @@ use Ada.Text_IO, Pack_Demineur, ES_Fichier;
 procedure demineur_v1_00 is
     nb_lignes : T_Nb_Ligne;
     nb_colonnes : T_Nb_Colonne;
+    --  Il est nécessaire de créer des packages pour les Types qui seront
+    --  écrits ou lus.
     package T_Nb_Ligne_IO is new Ada.Text_IO.Integer_IO (T_Nb_Ligne);
     use T_Nb_Ligne_IO;
     package T_Nb_Colonne_IO is new Ada.Text_IO.Integer_IO (T_Nb_Colonne);
@@ -28,9 +30,13 @@ procedure demineur_v1_00 is
     Ada.Text_IO.Integer_IO (T_Nb_Case_A_Ouvrir);
     use T_Nb_Case_A_Ouvrir_IO;
 begin
+    --  On s'assure de la présence des dossiers "sauvegarde/" et ".repertoire/"
+    --  et des fichiers "sauvegarde_rapide.txt" et "titres_sauvegardes.txt"
+    --  dans le dossier ".repertoire/"
     initialisation_environnement;
     charger_liste_sauvegardes (parties_sauvegardees);
     New_Line (100);
+    --  On affiche le nom Démineur en ASCII Art
     Put_Line (" ____                         "
     & "                                  ");
     Put_Line ("/\  _`\                      _"
