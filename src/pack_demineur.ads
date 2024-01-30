@@ -134,4 +134,6 @@ package Pack_Demineur is
     procedure supprimer_elem_liste_sauvegarde
     (parties_sauvegardees : in out T_Parties_Sauvegardees;
     titre : T_Chaine);
+
+    function "=" (chaine1 : T_Chaine; chaine2 : T_Chaine) return Boolean;
 end Pack_Demineur;

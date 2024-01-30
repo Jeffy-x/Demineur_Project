@@ -528,4 +528,11 @@ package body Pack_Demineur is
         end loop;
     end supprimer_elem_liste_sauvegarde;
 
+    function "=" (chaine1 : T_Chaine; chaine2 : T_Chaine) return Boolean is
+    begin
+        return chaine1.lettres (1 .. chaine1.longueur_chaine) =
+        chaine2.lettres (1 .. chaine2.longueur_chaine)
+        and chaine1.longueur_chaine = chaine2.longueur_chaine;
+    end "=";
+
 end Pack_Demineur;
