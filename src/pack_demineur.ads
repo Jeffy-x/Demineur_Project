@@ -6,7 +6,20 @@ package Pack_Demineur is
     '1', '2', '3', '4', '5', '6', '7', '8');
     type T_Grille is array (T_Nb_Ligne range <>,
     T_Nb_Colonne range <>) of T_Element_Case;
+    --  L'action du joueur n'est que d'une lettre pour permettre de jouer
+    --  plus rapidement :
+    --  p => poser un drapeau
+    --  o => ouvrir une case
+    --  q => quitter
+    --  s => sauvegarder
+    --  d => supprimer une sauvegarde
     type T_Action_Joueur is (p, o, q, s, d);
+    --  Le choix de chargement de grille est aussi d'une lettre pour
+    --  permettre de lancer plus rapidement la partie :
+    --  n => nouvelle partie
+    --  c => continuer la partie en cours
+    --  s => charger une sauvegarde
+    --  q => quitter
     type T_Choix_Chargement_Grille is (n, c, s, q);
     type T_Random is range 1 .. 99;
     type T_Etat_Partie is (gagne, en_cours, perdu);
