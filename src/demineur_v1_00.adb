@@ -132,14 +132,14 @@ begin
             Skip_Line;
             New_Line;
             case action is
-                when a =>
-                    afficher_sauvegardes (parties_sauvegardees);
                 when d =>
                     afficher_sauvegardes (parties_sauvegardees);
+                    New_Line;
                     Put_Line ("Veillez entrer le nom de la sauvegarde"
                     & " que vous voulez supprimer");
                     Get_Line (titre.lettres, titre.longueur_chaine);
                     supprimer_sauvegarde (titre, parties_sauvegardees);
+                    enregistrer_liste_sauvegardes (parties_sauvegardees);
                 when q =>
                     chemin.longueur_chaine := 33;
                     chemin.lettres (1 .. chemin.longueur_chaine) :=
