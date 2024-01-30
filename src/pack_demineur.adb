@@ -528,6 +528,15 @@ package body Pack_Demineur is
         end loop;
     end supprimer_elem_liste_sauvegarde;
 
+    procedure supprimer_sauvegarde (titre : T_Chaine;
+    parties_sauvegardees : in out T_Parties_Sauvegardees) is
+        fic : File_Type;
+    begin
+        supprimer_elem_liste_sauvegarde (parties_sauvegardees, titre);
+        OuvrirFichier (fic => fic, titre_to_chemin (titre => titre));
+        SupprimerFicher (fic);
+    end supprimer_sauvegarde;
+
     function "=" (chaine1 : T_Chaine; chaine2 : T_Chaine) return Boolean is
     begin
         return chaine1.lettres (1 .. chaine1.longueur_chaine) =

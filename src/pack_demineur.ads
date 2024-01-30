@@ -135,5 +135,8 @@ package Pack_Demineur is
     (parties_sauvegardees : in out T_Parties_Sauvegardees;
     titre : T_Chaine);
 
+    procedure supprimer_sauvegarde (titre : T_Chaine;
+    parties_sauvegardees : in out T_Parties_Sauvegardees);
+
     function "=" (chaine1 : T_Chaine; chaine2 : T_Chaine) return Boolean;
 end Pack_Demineur;
