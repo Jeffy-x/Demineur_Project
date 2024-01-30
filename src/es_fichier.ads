@@ -27,11 +27,27 @@ package ES_Fichier is
     --  Fin du fichier ??
     function FinFichier (fic : File_Type) return Boolean;
 
+    --  Action : CreerDossier
+    --  E/ : nom : String
+    --  Entraîne : crée un dossier appelé nom
     procedure CreerDossier (nom : String);
 
+    --  Action : DesignerDossierPrincipal
+    --  E/ : nom String
+    --  Nécessite : Le nom doit corresponde à un dossier
+    --  Entraîne : Le dossier appelé nom devient le dossier de référence
+    --             pour la création de fichiers
     procedure DesignerDossierPrincipal (nom : String);
 
+    --  Action : Existence
+    --  E/ : chemin : String
+    --  S/ : retourne le booléen qui nous dit si le fichier ou le dossier
+    --       désigné par le chemin existe
     function Existence (chemin : String) return Boolean;
 
+    --  Action : ReinitialisationFichier
+    --  E/S/ : fic : File_Type
+    --  Entraîne : Supprime les éléments du fichier si celui-ci est ouvert
+    --             sans être modifié réinitialisé puis refermé.
     procedure ReinitialisationFichier (fic : in out File_Type);
 end ES_Fichier;
