@@ -533,8 +533,7 @@ package body Pack_Demineur is
         fic : File_Type;
     begin
         supprimer_elem_liste_sauvegarde (parties_sauvegardees, titre);
-        OuvrirFichier (fic, Chaine_to_String (titre));
-        --  Ajouter le chemin (en T_Chaine)
+        OuvrirFichier (fic, Chaine_to_String (titre_to_chemin (titre)));
         SupprimerFicher (fic);
     end supprimer_sauvegarde;
 
