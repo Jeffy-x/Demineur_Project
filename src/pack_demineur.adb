@@ -533,7 +533,8 @@ package body Pack_Demineur is
         fic : File_Type;
     begin
         supprimer_elem_liste_sauvegarde (parties_sauvegardees, titre);
-        OuvrirFichier (fic => fic, titre_to_chemin (titre => titre));
+        OuvrirFichier (fic, Chaine_to_String (titre));
+        --  Ajouter le chemin (en T_Chaine)
         SupprimerFicher (fic);
     end supprimer_sauvegarde;
 
@@ -544,4 +545,8 @@ package body Pack_Demineur is
         and chaine1.longueur_chaine = chaine2.longueur_chaine;
     end "=";
 
+    function Chaine_to_String (chaine : T_Chaine) return String is
+    begin
+        return String (chaine.lettres) (1 .. Natural (chaine.longueur_chaine));
+    end Chaine_to_String;
 end Pack_Demineur;

@@ -139,4 +139,7 @@ package Pack_Demineur is
     parties_sauvegardees : in out T_Parties_Sauvegardees);
 
     function "=" (chaine1 : T_Chaine; chaine2 : T_Chaine) return Boolean;
+
+    function Chaine_to_String (chaine : T_Chaine) return String;
+
 end Pack_Demineur;
