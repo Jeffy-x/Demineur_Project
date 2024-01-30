@@ -138,7 +138,7 @@ package Pack_Demineur is
     --  E/ : elem : T_Elem_Case
     --  S/ : les elements de case sous forme de String
     function elem_case_to_string (elem : T_Element_Case) return String;
-    
+
     --  Action : character_to_elem_case
     --  E/ : char : Character
     --  S/ : les elements de case correspondant au caractère
