@@ -84,23 +84,28 @@ package Pack_Demineur is
     etat_partie : out T_Etat_Partie);
 
     --  Action : initialisation_grille
-    --  E/S/ : grille, nb_lignes, nb_colonnes
+    --  E/S/ : grille : T_Grille;
+    --         nb_lignes : T_Nb_lines; nb_colonnes : T_Nb_Colonne
     --  Necessite : Néant
-    --  Action : met caché dans toutes les cases sauf sur la
-    --          couronne qui est remplie de drapeaux.
+    --  Action : met caché dans toutes les cases sauf sur la couronne
+    --           (cachée à l'utilisateur) qui est remplie de drapeaux.
     procedure initialisation_grille (grille : in out T_Grille;
     nb_lignes : T_Nb_Ligne; nb_colonnes : T_Nb_Colonne);
 
     --  Action : compter_case_a_ouvrir
-    --  E/S/ : grille et grille_solution, nb_lignes, nb_colonnes
-    --         retourne le nb de cases restantes à ouvrir
-    --  Necessite : Neant
+    --  E/ : grille & grille_solution : T_Grille
+    --       nb_lignes : T_Nb_Ligne, nb_colonnes : T_Nb_Colonne
+    --  S/ : le nombre de cases restantes à ouvrire pour gagner
+    --  Necessite : Néant
     function compter_case_a_ouvrir (grille : T_Grille;
     grille_solution : T_Grille; nb_lignes : T_Nb_Ligne;
     nb_colonnes : T_Nb_Colonne) return T_Nb_Case_A_Ouvrir;
 
     --  Action : sauvegarder_partie
-    --  E/S/ : grille, grille_solution, nb_ligne, nb_colonne
+    --  E/ : grille & grille_solution : T_Grille;
+    --       nb_ligne : T_Nb_Ligne; nb_colonne : T_Nb_Colonne
+    --       chemin : T_Chaine;
+    --  E/S/ : parties_sauvegardees : T_Parties_Sauvegardees
     --  Necessite : Neant
     --  Entraîne : Crée un fichier.txt qui comprend la grille
     --             de jeu ainsi que la grille_solution.
@@ -109,17 +114,39 @@ package Pack_Demineur is
     nb_colonnes : T_Nb_Colonne; chemin : T_Chaine;
     parties_sauvegardees : in out T_Parties_Sauvegardees);
 
+    --  Action : ajouter_sauvegarde
+    --  E/ : titre : T_Chaine;
+    --  E/S/ : parties_sauvegardees : T_Parties_Sauvegardees
+    --  Nécessite : Néant
+    --  Action : ajoute le titre à la liste de parties sauvegardées
+    --  Ecriture : Message d'erreur si il y a trop de parties sauvegardées
     procedure ajouter_sauvegarde (titre : T_Chaine;
     parties_sauvegardees : in out T_Parties_Sauvegardees);
 
+    --  Action : Put
+    --  E/ : chaine : T_Chaine
+    --  Ecriture : Affiche la chaine
     procedure Put (chaine : T_Chaine);
 
+    --  Action : Get_Line
+    --  S/ : lettres : T_Lettres; longueur_chaine : T_Indice_Chaine
+    --  Lecture : lettres; longueur chaine
     procedure Get_Line (lettres : out T_Lettres;
     longueur_chaine : out T_Indice_Chaine);
 
+    --  Action : elem_case_to_string
+    --  E/ : elem : T_Elem_Case
+    --  S/ : les elements de case sous forme de String
     function elem_case_to_string (elem : T_Element_Case) return String;
+    
+    --  Action : character_to_elem_case
+    --  E/ : char : Character
+    --  S/ : les elements de case correspondant au caractère
     function character_to_elem_case (char : Character) return T_Element_Case;
 
+    --  Action : afficher_sauvegardes
+    --  E/ : parties_sauvegardees : T_Parties_Sauvegardees
+    --  Ecriture : la liste et le nombre de parties sauvegardées
     procedure afficher_sauvegardes
     (parties_sauvegardees : T_Parties_Sauvegardees);
 
