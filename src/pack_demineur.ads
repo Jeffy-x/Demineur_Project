@@ -6,7 +6,7 @@ package Pack_Demineur is
     '1', '2', '3', '4', '5', '6', '7', '8');
     type T_Grille is array (T_Nb_Ligne range <>,
     T_Nb_Colonne range <>) of T_Element_Case;
-    type T_Action_Joueur is (p, o, q, s);
+    type T_Action_Joueur is (p, o, q, s, a, d);
     type T_Choix_Chargement_Grille is (n, c, s, q);
     type T_Random is range 1 .. 99;
     type T_Etat_Partie is (gagne, en_cours, perdu);

@@ -47,10 +47,10 @@ begin
     & "/\/_/\/_/\/_/\/____/ \/___/  \/_/ ");
     New_Line (2);
     Put_Line ("Bienvenue dans le jeu de demineur, que voulez-vous faire ?");
-    Put_Line ("c => continuer la partie en cours");
-    Put_Line ("n => commencer une nouvelle partie");
-    Put_Line ("s => charger une sauvegarde");
-    Put_Line ("q => quitter");
+    Put_Line ("continuer la partie en cours => c");
+    Put_Line ("commencer une nouvelle partie => n");
+    Put_Line ("charger une sauvegarde => s");
+    Put_Line ("quitter => q");
     Get (choix_chargement_grille);
     Skip_Line;
     case choix_chargement_grille is
@@ -124,12 +124,22 @@ begin
             Put_Line ("poser/retirer un drapeau => p");
             Put_Line ("ouvrir une case => o");
             Put_Line ("sauvegarder => s");
+            Put_Line ("afficher les sauvegardes => a");
+            Put_Line ("supprimer une sauvegarde => d");
             Put_Line ("quitter => q");
             New_Line;
             Get (action);
             Skip_Line;
             New_Line;
             case action is
+                when a =>
+                    afficher_sauvegardes (parties_sauvegardees);
+                when d =>
+                    afficher_sauvegardes (parties_sauvegardees);
+                    Put_Line ("Veillez entrer le nom de la sauvegarde"
+                    & " que vous voulez supprimer");
+                    Get_Line (titre.lettres, titre.longueur_chaine);
+                    supprimer_sauvegarde (titre, parties_sauvegardees);
                 when q =>
                     chemin.longueur_chaine := 33;
                     chemin.lettres (1 .. chemin.longueur_chaine) :=
