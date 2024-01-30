@@ -118,7 +118,7 @@ package Pack_Demineur is
     --  E/ : titre : T_Chaine;
     --  E/S/ : parties_sauvegardees : T_Parties_Sauvegardees
     --  Nécessite : Néant
-    --  Action : ajoute le titre à la liste de parties sauvegardées
+    --  Entraîne : ajoute le titre à la liste de parties sauvegardées
     --  Ecriture : Message d'erreur si il y a trop de parties sauvegardées
     procedure ajouter_sauvegarde (titre : T_Chaine;
     parties_sauvegardees : in out T_Parties_Sauvegardees);
@@ -150,35 +150,81 @@ package Pack_Demineur is
     procedure afficher_sauvegardes
     (parties_sauvegardees : T_Parties_Sauvegardees);
 
+    --  Action : charger_sauvegarde
+    --  E/ : nb_lignes : T_Nb_Ligne; nb_colonnes : T_Nb_Colonne;
+    --       chemin : T_Chaine
+    --  S/ : grille & grille_solution : T_Grille
+    --  Nécessite : l'existence d'un fichier de sauvegarde à l'adresse chemin
+    --  Entraîne : grille & grille_solution sont remplies avec la sauvegarde
     procedure charger_sauvegarde
     (grille : out T_Grille; grille_solution : out T_Grille;
     nb_lignes : T_Nb_Ligne;
     nb_colonnes : T_Nb_Colonne; chemin : T_Chaine);
 
+    --  Action : charger_lg_grille
+    --  E/ : chemin : T_Chaine;
+    --  S/ : nb_lignes : T_Nb_Ligne; nb_colonnes : T_Nb_Colonne
+    --  Nécessite : l'existence d'un fichier de sauvegarde à l'adresse chemin
+    --  Entraîne : nb_lignes & nb_colonnes valent le nombre de lignes et le
+    --             nombre de colonne de la grille sauvegardée au chemin.
     procedure charger_lg_grille (nb_lignes : out T_Nb_Ligne;
     nb_colonnes : out T_Nb_Colonne; chemin : T_Chaine);
 
+    --  Action : titre_to_chemin
+    --  E/ : titre : T_Chaine
+    --  S/ : renvoie la T_Chaine qui est une concaténation de "sauvegarde/",
+    --       avec titre et ".txt"
     function titre_to_chemin (titre : T_Chaine) return T_Chaine;
 
+    --  Action : chemin_to_titre
+    --  E/ : chemin : T_Chaine
+    --  S/ : renvoie le titre du fichier de sauvegarde en type T_Chaine
     function chemin_to_titre (chemin : T_Chaine) return T_Chaine;
 
+    --  Action : initialisation_environnement
+    --  Entraîne : S'ils n'existent pas, crée un dossier sauvegarde/ et
+    --             un dossier .repertoire/ et dans ce dernier les fichiers
+    --             titres_sauvegardes.txt et sauvegarde_rapide.txt
     procedure initialisation_environnement;
 
+    --  Action : enregistrer_liste_sauvegardes
+    --  E/ : parties_sauvegardees : T_Parties_Sauvegardees
+    --  Entraîne : écrit les titres de parties_sauvegardees dans le fichier
+    --             titres_sauvegardes
     procedure enregistrer_liste_sauvegardes
     (parties_sauvegardees : T_Parties_Sauvegardees);
 
+    --  Action : charger_liste_sauvegardes
+    --  S/ : parties_sauvegardees : T_Parties_Sauvegardees
+    --  Entraîne : parties_sauvegardees a la liste des titres sauvegardés
     procedure charger_liste_sauvegardes
     (parties_sauvegardees : out T_Parties_Sauvegardees);
 
+    --  Action : supprimer_elem_liste_sauvegarde
+    --  E/ : titre : T_Chaine
+    --  E/S/ : parties_sauvegardees : T_Parties_Sauvegardees
+    --  Entraîne : retire le titre des parties sauvegardees
     procedure supprimer_elem_liste_sauvegarde
     (parties_sauvegardees : in out T_Parties_Sauvegardees;
     titre : T_Chaine);
 
+    --  Action : supprimer_sauvegarde
+    --  E/ : titre : T_Chaine
+    --  E/S/ : parties_sauvegardees : T_Parties_Sauvegardees
+    --  Nécessite : l'existence d'un fichier de sauvegarde pour le titre
+    --  Entraîne : supprime le fichier de sauvegarde correspondant au titre
+    --            et supprime le titre de la liste des parties_sauvegardees
     procedure supprimer_sauvegarde (titre : T_Chaine;
     parties_sauvegardees : in out T_Parties_Sauvegardees);
 
+    --  Action : "="
+    --  E/ : chaine1 & chaine2 : T_Chaine
+    --  S/ : vrai si les chaines sont de la même longueur et se valent
     function "=" (chaine1 : T_Chaine; chaine2 : T_Chaine) return Boolean;
 
+    --  Action : Chaine_to_String
+    --  E/ : chaine : T_Chaine
+    --  S/ : retourne la chaine sous forme de String
     function Chaine_to_String (chaine : T_Chaine) return String;
 
 end Pack_Demineur;
