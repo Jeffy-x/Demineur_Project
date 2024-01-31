@@ -30,7 +30,8 @@ procedure demineur_v1_00 is
     Ada.Text_IO.Integer_IO (T_Nb_Case_A_Ouvrir);
     use T_Nb_Case_A_Ouvrir_IO;
 begin
-    --  On s'assure de la présence des dossiers "sauvegarde/" et ".repertoire/"
+    --  On s'assure de la présence des dossiers
+    --  "sauvegarde/" et ".repertoire/"
     --  et des fichiers "sauvegarde_rapide.txt" et "titres_sauvegardes.txt"
     --  dans le dossier ".repertoire/"
     initialisation_environnement;
@@ -130,7 +131,6 @@ begin
             Put_Line ("poser/retirer un drapeau => p");
             Put_Line ("ouvrir une case => o");
             Put_Line ("sauvegarder => s");
-            Put_Line ("afficher les sauvegardes => a");
             Put_Line ("supprimer une sauvegarde => d");
             Put_Line ("quitter => q");
             New_Line;
