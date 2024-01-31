@@ -3,9 +3,12 @@ use Ada.Text_IO, Pack_Demineur, Aleatoire, ES_Fichier;
 
 package body Pack_Demineur is
 
+    --  La procedure d'affichage donne un caractère à afficher à chaque
+    --  élément de case et affiche les lignes et les colonnes
     procedure afficher_grille (grille : T_Grille; nb_lignes : T_Nb_Ligne;
     nb_colonnes : T_Nb_Colonne) is
     begin
+        --  affichage du numéro des lignes
         New_Line;
         Put ("    ");
         for J in 1 .. nb_colonnes loop
@@ -96,6 +99,7 @@ package body Pack_Demineur is
         nb_bombes_a_poser : T_Nb_Bombe := nb_bombes;
 
     begin
+        --  initialisation de la grille_solution
         grille_solution := (others => (others => vide));
         loop
             Initialise (1, Integer (nb_lignes));
@@ -104,6 +108,7 @@ package body Pack_Demineur is
             colonne_random := Random;
             ligne := T_Nb_Ligne (ligne_random);
             colonne := T_Nb_Colonne (colonne_random);
+            --  on pose une bombe en (ligne, colonne), si il n'y en a pas
             if grille_solution (ligne + 1, colonne + 1) /= bombe then
                 grille_solution (ligne + 1, colonne + 1) := bombe;
                 nb_bombes_a_poser := nb_bombes_a_poser - 1;
@@ -117,6 +122,7 @@ package body Pack_Demineur is
     colonne : T_Nb_Colonne) return T_Nb_Bombe is
         nb_bombes : T_Nb_Bombe := 0;
     begin
+        --  on regarde dans les cases autour de la position (ligne, colonne)
         for i in 0 .. T_Nb_Ligne (2) loop
             for j in 0 .. T_Nb_Colonne (2) loop
                 if grille_solution (ligne + i,
@@ -132,8 +138,10 @@ package body Pack_Demineur is
     procedure poser_drapeau (grille : in out T_Grille;
     ligne : T_Nb_Ligne; colonne : T_Nb_Colonne) is
     begin
+        --  on pose un drapeau si la case est cachée
         if grille (ligne + 1, colonne + 1) = cache then
             grille (ligne + 1, colonne + 1) := drapeau;
+        --  on enlève le drapeau si la case en a un
         elsif grille (ligne + 1, colonne + 1) = drapeau then
             grille (ligne + 1, colonne + 1) := cache;
         else
@@ -144,7 +152,10 @@ package body Pack_Demineur is
     procedure initialisation_grille (grille : in out T_Grille;
     nb_lignes : T_Nb_Ligne; nb_colonnes : T_Nb_Colonne) is
     begin
+        --  on initialise la grille en cachant toutes les cases
         grille := (others => (others => cache));
+        --  on crée une couronne de drapeau dans la partie invisible
+        --  de la grille
         for i in 1 .. nb_lignes + 2 loop
             grille (i, 1) := drapeau;
             grille (i, nb_colonnes + 2) := drapeau;
@@ -163,7 +174,9 @@ package body Pack_Demineur is
     begin
         etat_partie := en_cours;
         if grille (ligne + 1, colonne + 1) = cache then
+            --  on compte le nombre de bombes autour de (ligne, colonne)
             nb_bombe := compter_bombe (grille_solution, ligne, colonne);
+            --  on affiche l'élément de la case
             if grille_solution (ligne + 1, colonne + 1) = bombe then
                 grille (ligne + 1, colonne + 1) := bombe;
                 etat_partie := perdu;
@@ -185,6 +198,8 @@ package body Pack_Demineur is
                 grille (ligne + 1, colonne + 1) := '1';
             elsif nb_bombe = 0 then
                 grille (ligne + 1, colonne + 1) := vide;
+                --  si la case est vide, on ouvrer les 8 cases autour
+                --  par récursivité
                 for i in 0 .. T_Nb_Ligne (2) loop
                     for j in 0 .. T_Nb_Colonne (2) loop
                         ouvrir_case (grille, grille_solution,
@@ -201,8 +216,11 @@ package body Pack_Demineur is
     nb_colonnes : T_Nb_Colonne) return T_Nb_Case_A_Ouvrir is
         nb_case_a_ouvrir : T_Nb_Case_A_Ouvrir := 0;
     begin
+        --  on regarde dans l'intégralité du tableau
         for I in 1 .. nb_lignes loop
             for J in 1 .. nb_colonnes loop
+                --  si la case est cachée ou a un drapeau et qu'il n'y a
+                --  pas de bombe, on ajoute une case à ouvrir
                 if (grille (I + 1, J + 1) = cache
                 or grille (I + 1, J + 1) = drapeau)
                 and grille_solution (I + 1, J + 1) /= bombe
