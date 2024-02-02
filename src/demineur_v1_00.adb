@@ -22,6 +22,7 @@ procedure demineur_v1_00 is
     package T_Nb_Bombe_IO is new
     Ada.Text_IO.Integer_IO (T_Nb_Bombe);
     use T_Nb_Bombe_IO;
+    --  on initiallise la partie en la considérant en cours
     etat_partie : T_Etat_Partie := en_cours;
     parties_sauvegardees : T_Parties_Sauvegardees;
     titre : T_Chaine;

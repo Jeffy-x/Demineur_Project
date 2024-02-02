@@ -235,6 +235,8 @@ package body Pack_Demineur is
     procedure ajouter_sauvegarde (titre : T_Chaine;
     parties_sauvegardees : in out T_Parties_Sauvegardees) is
     begin
+        --  on vérifie qu'il y a encore de la place
+        --  dans la liste de sauvegarde
         if parties_sauvegardees.nb_titres_sauvegardes =
         T_Indice_Liste_Sauvegarde'Last
         then
