@@ -568,4 +568,17 @@ package body Pack_Demineur is
     begin
         return String (chaine.lettres) (1 .. Natural (chaine.longueur_chaine));
     end Chaine_to_String;
+
+    procedure mettre_solution (grille : in out T_Grille;
+    grille_solution : T_Grille;
+    nb_lignes : T_Nb_Ligne; nb_colonnes : T_Nb_Colonne) is
+    begin
+        for I in 1 .. nb_lignes loop
+            for J in 1 .. nb_colonnes loop
+                if grille_solution (I, J) = bombe then
+                    grille (I, J) := bombe;
+                end if;
+            end loop;
+        end loop;
+    end mettre_solution;
 end Pack_Demineur;

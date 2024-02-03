@@ -240,4 +240,8 @@ package Pack_Demineur is
     --  S/ : retourne la chaine sous forme de String
     function Chaine_to_String (chaine : T_Chaine) return String;
 
+    procedure mettre_solution (grille : in out T_Grille;
+    grille_solution : T_Grille;
+    nb_lignes : T_Nb_Ligne; nb_colonnes : T_Nb_Colonne);
+
 end Pack_Demineur;

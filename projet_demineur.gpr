@@ -20,7 +20,8 @@ project Projet_Demineur is
                 "test_reinitialisationfichier.adb",
                 "test_supprimer_elem_liste_sauvegarde.adb",
                 "test_chaine_to_string.adb",
-                "test_supprimer_sauvegarde.adb");
+                "test_supprimer_sauvegarde.adb",
+                "test_mettre_solution.adb");
 
     package Compiler is
         for Default_Switches ("Ada")
