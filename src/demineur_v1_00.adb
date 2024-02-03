@@ -199,16 +199,26 @@ begin
                       (parties_sauvegardees => parties_sauvegardees);
             end case;
         end loop;
-        New_Line (100);
-        afficher_grille (grille, nb_lignes, nb_colonnes);
-        New_Line;
         case etat_partie is
             when perdu =>
+                New_Line (100);
+                mettre_solution (grille, grille_solution,
+                nb_lignes, nb_colonnes);
+                afficher_grille (grille, nb_lignes, nb_colonnes);
+                New_Line;
                 Put_Line ("Vous etes une vraie quiche, vous etes decedes...");
             when gagne =>
+                New_Line (100);
+                mettre_solution (grille, grille_solution,
+                nb_lignes, nb_colonnes);
+                afficher_grille (grille, nb_lignes, nb_colonnes);
+                New_Line;
                 Put_Line ("Felicitations ! Vous avez survecu...");
             when en_cours =>
-                null;
+                New_Line (100);
+                afficher_grille (grille, nb_lignes, nb_colonnes);
+                New_Line;
+
         end case;
         Put_Line ("Fermeture du jeu ...");
         Put_Line ("Nous vous remercions de votre visite"
