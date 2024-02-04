@@ -257,6 +257,9 @@ package body Pack_Demineur is
         chemin_string : String (1 .. Natural (T_Indice_Chaine'Last));
         chemin_longueur : Natural;
     begin
+        --  on caste la longueur de la chaine et la chaine
+        --  en Natural et en String pour pouvoir
+        --  utililiser le package ES_Fichier
         chemin_longueur := Natural (chemin.longueur_chaine);
         chemin_string (1 .. chemin_longueur) :=
         String (chemin.lettres) (1 .. chemin_longueur);
@@ -265,6 +268,7 @@ package body Pack_Demineur is
         NouvelleLigne (Fichier);
         AjouterAuFichier (Fichier, Integer (nb_colonnes));
         NouvelleLigne (Fichier);
+        --  on ajoute au fichier toutes les cases de la grille
         for I in 1 .. nb_lignes loop
             for J in 1 .. nb_colonnes loop
                 AjouterAuFichier (Fichier,
@@ -273,6 +277,7 @@ package body Pack_Demineur is
             NouvelleLigne (Fichier);
         end loop;
         NouvelleLigne (Fichier);
+        --  on ajoute au fichier toutes les cases de la grille_solution
         for I in 1 .. nb_lignes loop
             for J in 1 .. nb_colonnes loop
                 AjouterAuFichier (Fichier,
@@ -280,6 +285,9 @@ package body Pack_Demineur is
             end loop;
             NouvelleLigne (Fichier);
         end loop;
+        --  lorsque la sauvegarde est une sauvegarde rapide, on sauvegarde dans
+        --  .repertoire/sauvegarde_rapide.txt, sinon on crée le fichier
+        --  correspondant dans le fichier sauvegarde/
         if chemin.lettres (1 .. 33) /= ".repertoire/sauvegarde_rapide.txt" then
             ajouter_sauvegarde
             (chemin_to_titre (chemin), parties_sauvegardees);
@@ -299,8 +307,12 @@ package body Pack_Demineur is
         chaine_string : String (1 .. Natural (T_Indice_Chaine'Last));
         chaine_longueur : Natural;
     begin
+        --  on initialise une String
         chaine_string (1) := 'a';
+        --  on récupère une string et un natural avec Get_Line
         Get_Line (chaine_string, chaine_longueur);
+        --  on cast le natural et la string
+        --  pour former un élément de type T_Chaine
         longueur_chaine := T_Indice_Chaine (chaine_longueur);
         lettres (1 .. longueur_chaine) :=
         T_Lettres (chaine_string) (1 .. longueur_chaine);
@@ -308,6 +320,8 @@ package body Pack_Demineur is
 
     function elem_case_to_string (elem : T_Element_Case) return String is
     begin
+        --  en fonction de l'élément entré, on retourne une chaine de
+        --  caractères qui est utilisable dans l'écriture de fichier
         case elem is
             when cache =>
                 return "C";
@@ -338,6 +352,8 @@ package body Pack_Demineur is
 
     function character_to_elem_case (char : Character) return T_Element_Case is
     begin
+        --  en fonction de l'élément entré, on retourne un élément de
+        --  case. C'est utile dans la lecture de fichier
         case char is
             when 'C' =>
                 return cache;
@@ -371,8 +387,10 @@ package body Pack_Demineur is
     procedure afficher_sauvegardes (parties_sauvegardees :
     T_Parties_Sauvegardees) is
     begin
+        --  on affiche le nombre de parties sauvegardées
         Put ("Parties sauvegardees : " & T_Indice_Liste_Sauvegarde'Image
         (parties_sauvegardees.nb_titres_sauvegardes));
+        --  on affiche les parties sauvegardées
         for J in 1 .. parties_sauvegardees.nb_titres_sauvegardes loop
             New_Line;
             Put (parties_sauvegardees.titres (J));
@@ -388,12 +406,14 @@ package body Pack_Demineur is
         val_ent : Integer;
         char : Character;
     begin
+        --  on initialise les grilles pour pouvoir les utiliser
         initialisation_grille (grille, nb_lignes, nb_colonnes);
         grille_solution := (others => (others => vide));
 
         chemin_longueur := Natural (chemin.longueur_chaine);
         chemin_string (1 .. chemin_longueur) :=
         String (chemin.lettres) (1 .. chemin_longueur);
+        --  On lit le nombre de lignes et de colonnes de la sauvegarde
         OuvrirFichierLect
     (Fichier, chemin_string (1 .. chemin_longueur));
         Lecture (Fichier, val_ent);
@@ -404,6 +424,7 @@ package body Pack_Demineur is
         if nb_colonnes /= T_Nb_Colonne (val_ent) then
             Put_Line ("Erreur de lecture nb_colonnes pour contraindre");
         end if;
+        --  on charge la grille
         for I in 1 .. nb_lignes loop
             for J in 1 .. nb_colonnes loop
                 Lecture (Fichier, char);
@@ -411,6 +432,7 @@ package body Pack_Demineur is
                 character_to_elem_case (char);
             end loop;
         end loop;
+        --  on charge la grille solution
         for I in 1 .. nb_lignes loop
             for J in 1 .. nb_colonnes loop
                 Lecture (Fichier, char);
@@ -433,6 +455,7 @@ package body Pack_Demineur is
         String (chemin.lettres) (1 .. chemin_longueur);
         OuvrirFichierLect
     (Fichier, chemin_string (1 .. chemin_longueur));
+        --  on lit le nombre de lignes et de colonnes de la sauvegarde
         Lecture (Fichier, val_ent);
         nb_lignes := T_Nb_Ligne (val_ent);
         Lecture (Fichier, val_ent);
@@ -451,6 +474,7 @@ package body Pack_Demineur is
         txt.longueur_chaine := 4;
         txt.lettres (1 .. 4) := ".txt";
 
+        --  on concatène les chaines et on aditionne les longueurs
         chemin_global.longueur_chaine :=
         chemin_initial.longueur_chaine + titre.longueur_chaine
         + txt.longueur_chaine;
@@ -464,6 +488,8 @@ package body Pack_Demineur is
     function chemin_to_titre (chemin : T_Chaine) return T_Chaine is
         titre : T_Chaine;
     begin
+        --  on récupère la partie de titre dans le
+        --  chemin de sauvegarde
         titre.longueur_chaine := chemin.longueur_chaine - 15;
         titre.lettres (1 .. titre.longueur_chaine) :=
         chemin.lettres (12 .. (chemin.longueur_chaine - 4));
@@ -493,9 +519,13 @@ package body Pack_Demineur is
     (parties_sauvegardees : T_Parties_Sauvegardees) is
         fic : File_Type;
     begin
+        --  on réinitialise le fichier avec les titres sauvegardés
         OuvrirFichier (fic, ".repertoire/titres_sauvegardes.txt");
         ReinitialisationFichier (fic);
         FermerFichier (fic);
+        --  on écrit les titres sauvegardés dans le fichier (qui
+        --  peuvent être plus nombreux que ceux écrits initialement
+        --  dans fichier)
         OuvrirFichier (fic, ".repertoire/titres_sauvegardes.txt");
         for J in 1 .. parties_sauvegardees.nb_titres_sauvegardes loop
             AjouterAuFichier (fic, String (parties_sauvegardees.titres
@@ -515,6 +545,8 @@ package body Pack_Demineur is
         char : Character;
     begin
         OuvrirFichierLect (Fichier, ".repertoire/titres_sauvegardes.txt");
+        --  tant que le fichier n'est pas fini, on lit les
+        --  éléments du fichier
         while not FinFichier (Fichier) loop
             Lecture (Fichier, char);
             if not FinLigne (Fichier) then
@@ -536,6 +568,7 @@ package body Pack_Demineur is
     procedure supprimer_elem_liste_sauvegarde
     (parties_sauvegardees : in out T_Parties_Sauvegardees; titre : T_Chaine) is
     begin
+        --  on parcours la liste des titres sauvegardés
         for J in 1 .. parties_sauvegardees.nb_titres_sauvegardes loop
             if parties_sauvegardees.titres (J) = titre then
                 parties_sauvegardees.titres
@@ -573,6 +606,7 @@ package body Pack_Demineur is
     grille_solution : T_Grille;
     nb_lignes : T_Nb_Ligne; nb_colonnes : T_Nb_Colonne) is
     begin
+        --  on met dans la grille toutes les bombes de la grille_solution
         for I in 1 .. nb_lignes loop
             for J in 1 .. nb_colonnes loop
                 if grille_solution (I, J) = bombe then
