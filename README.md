@@ -13,6 +13,10 @@ Un fichier de documentation de ce programme peut être récupéré. Si vous ne l
 
 --------------------------------------------------------------------------
 
+Nous espérons que vous apprécierez l'expérience de jeu !!!
+
+--------------------------------------------------------------------------
+
 Contacts :
 - Maïa DJOROUKHIAN : maia.djoroukhian@etu.isae-ensma.fr
 - Jean FARGE : jean.farge@etu.isae-ensma.fr
